@@ -40,7 +40,8 @@ import PrivateRoute from './utils/PrivateRoute';
 // Preload images to ensure they're available
 const preloadImages = () => {
   const imagesToPreload = [
-    '/custom-logo.png', // Add the new custom logo
+    '/lamb-logo.png', // New lamb logo
+    '/custom-logo.png',
     '/logo.png',
     '/lamb-logo.svg',
     '/logo-icon.svg',

@@ -23,8 +23,9 @@ const Header = () => {
 
   const isActive = (path) => location.pathname === path;
 
-  // Use the custom logo as primary option
+  // Use the lamb logo as primary option
   const logoOptions = [
+    "/lamb-logo.png",
     "/custom-logo.png",
     "/logo.png",
     "/lamb-logo.svg",
@@ -48,35 +49,35 @@ const Header = () => {
           <Link to="/">
             <motion.div 
               whileHover={{ scale: 1.03 }}
-              className="flex items-center gap-4"
+              className="flex items-center gap-3"
             >
-              <div className="w-12 h-12 flex-shrink-0 bg-white rounded-full flex items-center justify-center overflow-hidden">
+              <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
                 {!logoError ? (
                   <img 
                     src={logoOptions[0]} 
                     alt="Lil' Hale Learners Logo" 
-                    className="w-10 h-10 object-contain"
+                    className="w-16 h-16 object-contain"
+                    style={{ objectFit: 'contain' }}
                     onError={(e) => {
                       console.error('Logo failed to load:', e);
                       // Try the next logo option
-                      e.target.src = logoOptions[1];
-                      // If all fail, set error to true
-                      e.target.onerror = () => {
-                        e.target.src = logoOptions[2];
-                        e.target.onerror = () => {
-                          e.target.src = logoOptions[3];
-                          e.target.onerror = () => {
-                            e.target.src = logoOptions[4];
-                            e.target.onerror = () => setLogoError(true);
-                          };
-                        };
+                      let currentIndex = 0;
+                      const tryNextLogo = () => {
+                        currentIndex++;
+                        if (currentIndex < logoOptions.length) {
+                          e.target.src = logoOptions[currentIndex];
+                        } else {
+                          setLogoError(true);
+                        }
                       };
+                      e.target.onerror = tryNextLogo;
+                      tryNextLogo();
                     }}
                   />
                 ) : (
                   // Fallback to text-based logo
-                  <div className="w-10 h-10 bg-muted-purple rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-xl">L</span>
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                    <span className="text-muted-purple font-bold text-2xl">L</span>
                   </div>
                 )}
               </div>

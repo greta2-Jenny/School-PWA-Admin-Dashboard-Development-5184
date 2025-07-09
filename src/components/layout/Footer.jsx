@@ -35,8 +35,9 @@ const Footer = () => {
     'Tutorial Classes'
   ];
 
-  // Use the custom logo as primary option
+  // Use the lamb logo as primary option
   const logoOptions = [
+    "/lamb-logo.png",
     "/custom-logo.png",
     "/logo.png",
     "/lamb-logo.svg",
@@ -51,33 +52,33 @@ const Footer = () => {
           {/* School Info */}
           <div className="space-y-6">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 flex-shrink-0 bg-white rounded-full flex items-center justify-center overflow-hidden">
+              <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
                 {!logoError ? (
                   <img 
                     src={logoOptions[0]} 
                     alt="Lil' Hale Learners Logo" 
-                    className="w-12 h-12 object-contain"
+                    className="w-16 h-16 object-contain"
+                    style={{ objectFit: 'contain' }}
                     onError={(e) => {
                       console.error('Footer logo failed to load:', e);
                       // Try the next logo option
-                      e.target.src = logoOptions[1];
-                      // If all fail, set error to true
-                      e.target.onerror = () => {
-                        e.target.src = logoOptions[2];
-                        e.target.onerror = () => {
-                          e.target.src = logoOptions[3];
-                          e.target.onerror = () => {
-                            e.target.src = logoOptions[4];
-                            e.target.onerror = () => setLogoError(true);
-                          };
-                        };
+                      let currentIndex = 0;
+                      const tryNextLogo = () => {
+                        currentIndex++;
+                        if (currentIndex < logoOptions.length) {
+                          e.target.src = logoOptions[currentIndex];
+                        } else {
+                          setLogoError(true);
+                        }
                       };
+                      e.target.onerror = tryNextLogo;
+                      tryNextLogo();
                     }}
                   />
                 ) : (
                   // Fallback to text-based logo
-                  <div className="w-12 h-12 bg-muted-purple rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-2xl">L</span>
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                    <span className="text-muted-purple font-bold text-2xl">L</span>
                   </div>
                 )}
               </div>
@@ -209,7 +210,7 @@ const Footer = () => {
                 className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-muted-purple hover:bg-gray-100 transition-all duration-300"
               >
                 <SafeIcon icon={FiArrowUp} className="w-5 h-5" />
-              </motion.button>
+              </button>
             </div>
           </div>
 

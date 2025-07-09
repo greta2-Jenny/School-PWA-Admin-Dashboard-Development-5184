@@ -10,6 +10,12 @@
   "scope": "/",
   "icons": [
     {
+      "src": "/lamb-logo.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "/custom-logo.png",
       "sizes": "64x64",
       "type": "image/png",

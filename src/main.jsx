@@ -8,7 +8,8 @@ import './index.css';
 // Function to check if images are loading properly
 const checkImageLoading = () => {
   const imagesToCheck = [
-    '/custom-logo.png', // Add the new custom logo
+    '/lamb-logo.png', // New lamb logo
+    '/custom-logo.png',
     '/logo.png',
     '/lamb-logo.svg',
     '/logo-icon.svg',
