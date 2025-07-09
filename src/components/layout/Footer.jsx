@@ -35,18 +35,6 @@ const Footer = () => {
     'Tutorial Classes'
   ];
 
-  // Updated logo options with the new JPG file as primary
-  const logoOptions = [
-    "/lil-hale-lamb-logo.jpg", // New primary logo
-    "/uploaded-logo.png",
-    "/lamb-logo.png",
-    "/custom-logo.png",
-    "/logo.png",
-    "/lamb-logo.svg",
-    "/logo-icon.svg",
-    "/favicon.svg"
-  ];
-
   return (
     <footer className={`${darkMode ? 'bg-gray-900' : 'solid-bg-muted-purple'} transition-colors duration-300`}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-16">
@@ -57,28 +45,16 @@ const Footer = () => {
               <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
                 {!logoError ? (
                   <img
-                    src={logoOptions[0]}
+                    src="https://drive.google.com/uc?export=view&id=1W6X84fwnJCs5_BiuCy0jipwHP_J7n-XR"
                     alt="Lil' Hale Learners Logo"
-                    className="w-16 h-16 object-contain rounded-lg"
-                    style={{ objectFit: 'contain' }}
+                    className="w-16 h-16 object-contain"
                     onError={(e) => {
                       console.error('Footer logo failed to load:', e);
-                      // Try the next logo option
-                      let currentIndex = 0;
-                      const tryNextLogo = () => {
-                        currentIndex++;
-                        if (currentIndex < logoOptions.length) {
-                          e.target.src = logoOptions[currentIndex];
-                        } else {
-                          setLogoError(true);
-                        }
-                      };
-                      e.target.onerror = tryNextLogo;
-                      tryNextLogo();
+                      setLogoError(true);
                     }}
                   />
                 ) : (
-                  // Fallback to text-based logo
+                  // Fallback to text-based logo only if the image fails
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
                     <span className="text-muted-purple font-bold text-2xl">L</span>
                   </div>

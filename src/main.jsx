@@ -5,29 +5,6 @@ import { Toaster } from 'react-hot-toast';
 import App from './App.jsx';
 import './index.css';
 
-// Function to check if images are loading properly
-const checkImageLoading = () => {
-  const imagesToCheck = [
-    '/lil-hale-lamb-logo.jpg', // New primary logo
-    '/uploaded-logo.png',
-    '/lamb-logo.png',
-    '/custom-logo.png',
-    '/logo.png',
-    '/lamb-logo.svg',
-    '/logo-icon.svg',
-    '/favicon.svg',
-    '/favicon.ico',
-    '/apple-touch-icon.png'
-  ];
-
-  imagesToCheck.forEach(src => {
-    const img = new Image();
-    img.onload = () => console.log(`Image loaded successfully: ${src}`);
-    img.onerror = () => console.error(`Failed to load image: ${src}`);
-    img.src = src;
-  });
-};
-
 // Register service worker if available
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -38,9 +15,13 @@ if ('serviceWorker' in navigator) {
       .catch((registrationError) => {
         console.log('SW registration failed: ', registrationError);
       });
-
-    // Check image loading
-    checkImageLoading();
+      
+    // Pre-load the new logo image with the correct URL to ensure it's available
+    const logoUrl = "https://drive.google.com/uc?export=view&id=1W6X84fwnJCs5_BiuCy0jipwHP_J7n-XR";
+    const img = new Image();
+    img.onload = () => console.log('Logo image loaded successfully');
+    img.onerror = () => console.error('Failed to load logo image');
+    img.src = logoUrl;
   });
 }
 
