@@ -33,14 +33,12 @@ const Enrollment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     // Add enrollment to data
     addItem('students', {
       ...formData,
       status: 'pending',
       enrollmentDate: new Date().toISOString()
     });
-    
     toast.success('Enrollment application submitted successfully!');
     setFormData({
       childName: '',
@@ -55,10 +53,7 @@ const Enrollment = () => {
   };
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const enrollmentSteps = [
@@ -86,18 +81,18 @@ const Enrollment = () => {
 
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary-500 via-primary-400 to-secondary-500">
+      {/* Hero Section - Changed to solid Muted Purple */}
+      <section className={`relative py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-muted-purple'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
-            <motion.h1
+            <motion.h1 
               className="font-display font-bold text-4xl lg:text-6xl mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
               Enroll Your Child
             </motion.h1>
-            <motion.p
+            <motion.p 
               className="text-xl lg:text-2xl max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -109,19 +104,19 @@ const Enrollment = () => {
         </div>
       </section>
 
-      {/* Enrollment Steps */}
-      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+      {/* Enrollment Steps - Changed to solid Dusty Blue */}
+      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-dusty-blue'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <motion.h2
-              className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}
+            <motion.h2 
+              className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-white'}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               Enrollment Process
             </motion.h2>
-            <motion.p
-              className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto`}
+            <motion.p 
+              className={`text-xl ${darkMode ? 'text-gray-400' : 'text-white'} max-w-3xl mx-auto`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -129,7 +124,6 @@ const Enrollment = () => {
               Simple steps to get your child started at Lil' Hale Learners
             </motion.p>
           </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {enrollmentSteps.map((step, index) => (
               <motion.div
@@ -139,7 +133,7 @@ const Enrollment = () => {
                 transition={{ delay: index * 0.1 }}
                 className={`text-center p-6 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-700' : 'bg-white'}`}
               >
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-soft-rose rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-white font-bold text-xl">{step.step}</span>
                 </div>
                 <h3 className={`font-display font-bold text-xl mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -158,14 +152,14 @@ const Enrollment = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <motion.h2
+            <motion.h2 
               className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               Enrollment Application
             </motion.h2>
-            <motion.p
+            <motion.p 
               className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -174,8 +168,7 @@ const Enrollment = () => {
               Please fill out this form to begin the enrollment process
             </motion.p>
           </div>
-
-          <motion.form
+          <motion.form 
             onSubmit={handleSubmit}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -195,15 +188,14 @@ const Enrollment = () => {
                     onChange={handleChange}
                     required
                     className={`w-full pl-10 pr-4 py-3 rounded-lg border transition-colors duration-200 ${
-                      darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
+                      darkMode
+                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
                         : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
                     } focus:outline-none focus:ring-2 focus:ring-primary-500`}
                     placeholder="Enter child's full name"
                   />
                 </div>
               </div>
-
               <div>
                 <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   Child's Age *
@@ -214,8 +206,8 @@ const Enrollment = () => {
                   onChange={handleChange}
                   required
                   className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${
-                    darkMode 
-                      ? 'bg-gray-700 border-gray-600 text-white' 
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white'
                       : 'bg-white border-gray-300 text-gray-900'
                   } focus:outline-none focus:ring-2 focus:ring-primary-500`}
                 >
@@ -227,7 +219,6 @@ const Enrollment = () => {
                   <option value="6+">6+ years</option>
                 </select>
               </div>
-
               <div>
                 <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   Parent/Guardian Name *
@@ -241,15 +232,14 @@ const Enrollment = () => {
                     onChange={handleChange}
                     required
                     className={`w-full pl-10 pr-4 py-3 rounded-lg border transition-colors duration-200 ${
-                      darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
+                      darkMode
+                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
                         : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
                     } focus:outline-none focus:ring-2 focus:ring-primary-500`}
                     placeholder="Enter your full name"
                   />
                 </div>
               </div>
-
               <div>
                 <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   Email Address *
@@ -263,15 +253,14 @@ const Enrollment = () => {
                     onChange={handleChange}
                     required
                     className={`w-full pl-10 pr-4 py-3 rounded-lg border transition-colors duration-200 ${
-                      darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
+                      darkMode
+                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
                         : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
                     } focus:outline-none focus:ring-2 focus:ring-primary-500`}
                     placeholder="Enter your email"
                   />
                 </div>
               </div>
-
               <div>
                 <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   Phone Number *
@@ -285,15 +274,14 @@ const Enrollment = () => {
                     onChange={handleChange}
                     required
                     className={`w-full pl-10 pr-4 py-3 rounded-lg border transition-colors duration-200 ${
-                      darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
+                      darkMode
+                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
                         : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
                     } focus:outline-none focus:ring-2 focus:ring-primary-500`}
                     placeholder="Enter your phone number"
                   />
                 </div>
               </div>
-
               <div>
                 <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   Preferred Program *
@@ -304,8 +292,8 @@ const Enrollment = () => {
                   onChange={handleChange}
                   required
                   className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${
-                    darkMode 
-                      ? 'bg-gray-700 border-gray-600 text-white' 
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white'
                       : 'bg-white border-gray-300 text-gray-900'
                   } focus:outline-none focus:ring-2 focus:ring-primary-500`}
                 >
@@ -315,7 +303,6 @@ const Enrollment = () => {
                   ))}
                 </select>
               </div>
-
               <div>
                 <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   Preferred Start Date *
@@ -329,14 +316,13 @@ const Enrollment = () => {
                     onChange={handleChange}
                     required
                     className={`w-full pl-10 pr-4 py-3 rounded-lg border transition-colors duration-200 ${
-                      darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white' 
+                      darkMode
+                        ? 'bg-gray-700 border-gray-600 text-white'
                         : 'bg-white border-gray-300 text-gray-900'
                     } focus:outline-none focus:ring-2 focus:ring-primary-500`}
                   />
                 </div>
               </div>
-
               <div className="md:col-span-2">
                 <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                   Additional Information
@@ -347,32 +333,30 @@ const Enrollment = () => {
                   onChange={handleChange}
                   rows="4"
                   className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${
-                    darkMode 
-                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
+                    darkMode
+                      ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
                       : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
                   } focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none`}
                   placeholder="Any special needs, allergies, or additional information..."
                 />
               </div>
             </div>
-
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
                 type="submit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-8 py-4 bg-gradient-primary text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300"
+                className="inline-flex items-center px-8 py-4 bg-soft-rose text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300"
               >
                 <SafeIcon icon={FiSend} className="mr-2 w-5 h-5" />
                 Submit Application
               </motion.button>
-              
               <motion.a
                 href="/application-form.pdf"
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center px-8 py-4 border-2 border-primary-500 text-primary-500 font-semibold rounded-full hover:bg-primary-50 transition-all duration-300"
+                className="inline-flex items-center px-8 py-4 border-2 border-soft-rose text-soft-rose font-semibold rounded-full hover:bg-soft-rose hover:text-white transition-all duration-300"
               >
                 <SafeIcon icon={FiDownload} className="mr-2 w-5 h-5" />
                 Download PDF Form
@@ -382,19 +366,19 @@ const Enrollment = () => {
         </div>
       </section>
 
-      {/* Contact Information */}
-      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+      {/* Contact Information - Changed to solid Warm Blush */}
+      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-warm-blush'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <motion.h2
-              className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}
+            <motion.h2 
+              className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-muted-purple'}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               Questions About Enrollment?
             </motion.h2>
-            <motion.p
-              className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto`}
+            <motion.p 
+              className={`text-xl ${darkMode ? 'text-gray-400' : 'text-muted-purple'} max-w-3xl mx-auto`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -402,14 +386,13 @@ const Enrollment = () => {
               We're here to help! Contact us for more information about our programs and enrollment process.
             </motion.p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               className={`text-center p-6 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-700' : 'bg-white'}`}
             >
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-soft-rose rounded-full flex items-center justify-center mx-auto mb-4">
                 <SafeIcon icon={FiPhone} className="w-8 h-8 text-white" />
               </div>
               <h3 className={`font-display font-bold text-xl mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -419,14 +402,13 @@ const Enrollment = () => {
                 (555) 123-4567
               </p>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               className={`text-center p-6 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-700' : 'bg-white'}`}
             >
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-soft-rose rounded-full flex items-center justify-center mx-auto mb-4">
                 <SafeIcon icon={FiMail} className="w-8 h-8 text-white" />
               </div>
               <h3 className={`font-display font-bold text-xl mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -436,14 +418,13 @@ const Enrollment = () => {
                 info@lilhalelearners.com
               </p>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               className={`text-center p-6 rounded-2xl shadow-lg ${darkMode ? 'bg-gray-700' : 'bg-white'}`}
             >
-              <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-soft-rose rounded-full flex items-center justify-center mx-auto mb-4">
                 <SafeIcon icon={FiCalendar} className="w-8 h-8 text-white" />
               </div>
               <h3 className={`font-display font-bold text-xl mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>

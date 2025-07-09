@@ -32,10 +32,7 @@ const Contact = () => {
   };
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const contactInfo = [
@@ -43,42 +40,42 @@ const Contact = () => {
       icon: FiPhone,
       title: 'Phone',
       details: [data.settings.phone, 'Call us during school hours'],
-      color: 'from-blue-500 to-blue-600'
+      color: 'bg-dusty-blue'
     },
     {
       icon: FiMail,
       title: 'Email',
       details: [data.settings.contactEmail, 'Send us an email anytime'],
-      color: 'from-green-500 to-green-600'
+      color: 'bg-soft-rose'
     },
     {
       icon: FiMapPin,
       title: 'Address',
       details: [data.settings.address, 'Visit us at our location'],
-      color: 'from-purple-500 to-purple-600'
+      color: 'bg-muted-purple'
     },
     {
       icon: FiClock,
       title: 'Hours',
       details: ['Monday - Friday: 7:00 AM - 6:00 PM', 'Saturday: 8:00 AM - 12:00 PM'],
-      color: 'from-orange-500 to-orange-600'
+      color: 'bg-warm-blush'
     }
   ];
 
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary-500 via-primary-400 to-secondary-500">
+      {/* Hero Section - Changed to solid Muted Purple */}
+      <section className={`relative py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-muted-purple'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
-            <motion.h1
+            <motion.h1 
               className="font-display font-bold text-4xl lg:text-6xl mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
               Contact Us
             </motion.h1>
-            <motion.p
+            <motion.p 
               className="text-xl lg:text-2xl max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -90,8 +87,8 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Information */}
-      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+      {/* Contact Information - Changed to solid Dusty Blue */}
+      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-dusty-blue'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((info, index) => (
@@ -100,9 +97,11 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${darkMode ? 'bg-gray-700' : 'bg-white'}`}
+                className={`p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${
+                  darkMode ? 'bg-gray-700' : 'bg-white'
+                }`}
               >
-                <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${info.color} flex items-center justify-center mb-4`}>
+                <div className={`w-16 h-16 rounded-full ${info.color} flex items-center justify-center mb-4`}>
                   <SafeIcon icon={info.icon} className="w-8 h-8 text-white" />
                 </div>
                 <h3 className={`font-display font-bold text-xl mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -110,7 +109,12 @@ const Contact = () => {
                 </h3>
                 <div className="space-y-1">
                   {info.details.map((detail, i) => (
-                    <p key={i} className={`text-sm ${i === 0 ? 'font-medium' : ''} ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                    <p
+                      key={i}
+                      className={`text-sm ${i === 0 ? 'font-medium' : ''} ${
+                        darkMode ? 'text-gray-300' : 'text-gray-600'
+                      }`}
+                    >
                       {detail}
                     </p>
                   ))}
@@ -136,7 +140,6 @@ const Contact = () => {
               <p className={`text-lg mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                 Have questions about our programs, enrollment, or want to schedule a visit? We're here to help! Fill out the form and we'll get back to you as soon as possible.
               </p>
-
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -150,14 +153,13 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${
-                        darkMode 
-                          ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
+                        darkMode
+                          ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
                           : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
                       } focus:outline-none focus:ring-2 focus:ring-primary-500`}
                       placeholder="Your full name"
                     />
                   </div>
-
                   <div>
                     <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                       Email *
@@ -169,15 +171,14 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${
-                        darkMode 
-                          ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
+                        darkMode
+                          ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
                           : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
                       } focus:outline-none focus:ring-2 focus:ring-primary-500`}
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
-
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -189,14 +190,13 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${
-                        darkMode 
-                          ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
+                        darkMode
+                          ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
                           : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
                       } focus:outline-none focus:ring-2 focus:ring-primary-500`}
                       placeholder="Your phone number"
                     />
                   </div>
-
                   <div>
                     <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                       Subject *
@@ -207,8 +207,8 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${
-                        darkMode 
-                          ? 'bg-gray-700 border-gray-600 text-white' 
+                        darkMode
+                          ? 'bg-gray-700 border-gray-600 text-white'
                           : 'bg-white border-gray-300 text-gray-900'
                       } focus:outline-none focus:ring-2 focus:ring-primary-500`}
                     >
@@ -221,7 +221,6 @@ const Contact = () => {
                     </select>
                   </div>
                 </div>
-
                 <div>
                   <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                     Message *
@@ -233,26 +232,24 @@ const Contact = () => {
                     required
                     rows="6"
                     className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${
-                      darkMode 
-                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
+                      darkMode
+                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400'
                         : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
                     } focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none`}
                     placeholder="Tell us how we can help you..."
                   />
                 </div>
-
                 <motion.button
                   type="submit"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+                  className="w-full inline-flex items-center justify-center px-8 py-4 bg-soft-rose text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
                 >
                   <SafeIcon icon={FiSend} className="mr-2 w-5 h-5" />
                   Send Message
                 </motion.button>
               </form>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -305,14 +302,13 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-
               {/* Map placeholder */}
               <div className="mt-8 h-64 bg-gray-200 rounded-2xl overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-primary-100 to-secondary-100 flex items-center justify-center">
+                <div className="w-full h-full solid-bg-warm-blush flex items-center justify-center">
                   <div className="text-center">
-                    <SafeIcon icon={FiMapPin} className="w-12 h-12 text-primary-600 mx-auto mb-2" />
-                    <p className="text-primary-700 font-medium">Interactive Map</p>
-                    <p className="text-sm text-primary-600">123 Faith Street, Christian Valley</p>
+                    <SafeIcon icon={FiMapPin} className="w-12 h-12 text-muted-purple mx-auto mb-2" />
+                    <p className="text-muted-purple font-medium">Interactive Map</p>
+                    <p className="text-sm text-muted-purple">123 Faith Street, Christian Valley</p>
                   </div>
                 </div>
               </div>

@@ -23,8 +23,10 @@ const Header = () => {
 
   const isActive = (path) => location.pathname === path;
 
-  // Use the lamb logo as primary option
+  // Updated logo options with the new JPG file as primary
   const logoOptions = [
+    "/lil-hale-lamb-logo.jpg", // New primary logo
+    "/uploaded-logo.png",
     "/lamb-logo.png",
     "/custom-logo.png",
     "/logo.png",
@@ -47,16 +49,16 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/">
-            <motion.div 
+            <motion.div
               whileHover={{ scale: 1.03 }}
               className="flex items-center gap-3"
             >
               <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
                 {!logoError ? (
-                  <img 
-                    src={logoOptions[0]} 
-                    alt="Lil' Hale Learners Logo" 
-                    className="w-16 h-16 object-contain"
+                  <img
+                    src={logoOptions[0]}
+                    alt="Lil' Hale Learners Logo"
+                    className="w-16 h-16 object-contain rounded-lg"
                     style={{ objectFit: 'contain' }}
                     onError={(e) => {
                       console.error('Logo failed to load:', e);
@@ -101,9 +103,9 @@ const Header = () => {
                 className={`relative px-6 py-3 text-base font-display font-semibold transition-all duration-300 flex items-center space-x-2 rounded-lg ${
                   isActive(item.path)
                     ? 'text-white bg-soft-rose shadow-clean'
-                    : darkMode 
-                      ? 'text-gray-300 hover:text-white hover:bg-gray-800' 
-                      : 'text-white hover:text-warm-blush hover:bg-muted-purple-light'
+                    : darkMode
+                    ? 'text-gray-300 hover:text-white hover:bg-gray-800'
+                    : 'text-white hover:text-warm-blush hover:bg-muted-purple-light'
                 }`}
               >
                 <SafeIcon icon={item.icon} className="w-4 h-4" />
@@ -116,8 +118,8 @@ const Header = () => {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`md:hidden p-3 rounded-lg transition-all duration-300 ${
-              darkMode 
-                ? 'text-gray-300 hover:text-white hover:bg-gray-800' 
+              darkMode
+                ? 'text-gray-300 hover:text-white hover:bg-gray-800'
                 : 'text-warm-blush hover:text-white hover:bg-muted-purple-light'
             }`}
             aria-label="Toggle menu"
@@ -145,9 +147,9 @@ const Header = () => {
                 className={`block px-6 py-3 rounded-lg text-base font-display font-semibold transition-all duration-300 flex items-center space-x-3 ${
                   isActive(item.path)
                     ? 'bg-soft-rose text-white shadow-clean'
-                    : darkMode 
-                      ? 'text-gray-300 hover:text-white hover:bg-gray-800' 
-                      : 'text-white hover:text-warm-blush hover:bg-muted-purple-light'
+                    : darkMode
+                    ? 'text-gray-300 hover:text-white hover:bg-gray-800'
+                    : 'text-white hover:text-warm-blush hover:bg-muted-purple-light'
                 }`}
               >
                 <SafeIcon icon={item.icon} className="w-5 h-5" />

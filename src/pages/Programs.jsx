@@ -41,18 +41,18 @@ const Programs = () => {
 
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary-500 via-primary-400 to-secondary-500">
+      {/* Hero Section - Changed to solid Muted Purple */}
+      <section className={`relative py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-muted-purple'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
-            <motion.h1
+            <motion.h1 
               className="font-display font-bold text-4xl lg:text-6xl mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
               Our Programs
             </motion.h1>
-            <motion.p
+            <motion.p 
               className="text-xl lg:text-2xl max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ const Programs = () => {
                   onClick={() => setSelectedAge(age.value)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                     selectedAge === age.value
-                      ? 'bg-gradient-primary text-white shadow-lg'
+                      ? 'bg-soft-rose text-white shadow-lg' 
                       : darkMode
                       ? 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                       : 'bg-white text-gray-700 hover:bg-gray-100'
@@ -110,11 +110,7 @@ const Programs = () => {
                 }`}
               >
                 <div className="h-56 overflow-hidden">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={course.image} alt={course.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
@@ -126,15 +122,12 @@ const Programs = () => {
                       <span>{course.duration}</span>
                     </div>
                   </div>
-                  
                   <h3 className={`font-display font-bold text-xl mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                     {course.title}
                   </h3>
-                  
                   <p className={`text-sm mb-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                     {course.description}
                   </p>
-
                   <div className="mb-4">
                     <h4 className={`font-semibold text-sm mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                       What's Included:
@@ -150,7 +143,6 @@ const Programs = () => {
                       ))}
                     </ul>
                   </div>
-
                   <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
                     <div className="flex items-center space-x-1">
                       <SafeIcon icon={FiDollarSign} className={`w-4 h-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`} />
@@ -158,7 +150,7 @@ const Programs = () => {
                         {course.price}
                       </span>
                     </div>
-                    <button className="px-4 py-2 bg-gradient-primary text-white rounded-lg hover:shadow-md transition-all duration-200 text-sm font-medium">
+                    <button className="px-4 py-2 bg-soft-rose text-white rounded-lg hover:shadow-md transition-all duration-200 text-sm font-medium">
                       Learn More
                     </button>
                   </div>
@@ -169,8 +161,8 @@ const Programs = () => {
         </div>
       </section>
 
-      {/* Program Benefits */}
-      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+      {/* Program Benefits - Changed to solid Dusty Blue */}
+      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-dusty-blue'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -178,13 +170,11 @@ const Programs = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className={`font-display font-bold text-3xl lg:text-4xl mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h2 className={`font-display font-bold text-3xl lg:text-4xl mb-6 ${darkMode ? 'text-white' : 'text-white'}`}>
                 Why Choose Our Programs?
               </h2>
-              <p className={`text-lg mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                Every program at Lil' Hale Learners is designed with your child's development in mind. 
-                We combine Christian values with modern educational approaches to create a nurturing environment 
-                where children can thrive.
+              <p className={`text-lg mb-6 ${darkMode ? 'text-gray-300' : 'text-white'}`}>
+                Every program at Lil' Hale Learners is designed with your child's development in mind. We combine Christian values with modern educational approaches to create a nurturing environment where children can thrive.
               </p>
               <div className="grid gap-3">
                 {programBenefits.map((benefit, index) => (
@@ -198,14 +188,13 @@ const Programs = () => {
                     <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                       <SafeIcon icon={FiCheck} className="w-4 h-4 text-white" />
                     </div>
-                    <span className={`${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                    <span className={`${darkMode ? 'text-gray-300' : 'text-white'}`}>
                       {benefit}
                     </span>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -217,7 +206,6 @@ const Programs = () => {
                 alt="Children enjoying activities"
                 className="rounded-2xl shadow-xl w-full h-96 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
                   <h3 className="font-display font-bold text-xl mb-2">Small Class Sizes</h3>
@@ -249,7 +237,6 @@ const Programs = () => {
               Flexible scheduling options to fit your family's needs
             </motion.p>
           </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -270,7 +257,6 @@ const Programs = () => {
                 </div>
               </div>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -291,7 +277,6 @@ const Programs = () => {
                 </div>
               </div>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -316,17 +301,17 @@ const Programs = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-primary-500 to-secondary-500">
+      {/* Call to Action - Changed to solid Soft Rose */}
+      <section className={`py-20 ${darkMode ? 'bg-gray-700' : 'solid-bg-soft-rose'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2
+          <motion.h2 
             className="font-display font-bold text-3xl lg:text-4xl text-white mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
           >
             Ready to Enroll Your Child?
           </motion.h2>
-          <motion.p
+          <motion.p 
             className="text-xl text-white/90 mb-8 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -334,16 +319,16 @@ const Programs = () => {
           >
             Choose the program that's right for your child and give them the foundation they need to succeed
           </motion.p>
-          <motion.div
+          <motion.div 
             className="flex flex-col sm:flex-row gap-4 justify-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <button className="px-8 py-4 bg-white text-primary-600 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <button className="px-8 py-4 bg-white text-soft-rose font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 hover:shadow-lg hover:scale-105">
               📩 Enroll Now
             </button>
-            <button className="px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-primary-600 transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <button className="px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-soft-rose transition-all duration-300 hover:shadow-lg hover:scale-105">
               📅 Schedule a Visit
             </button>
           </motion.div>

@@ -10,6 +10,18 @@
   "scope": "/",
   "icons": [
     {
+      "src": "/lil-hale-lamb-logo.jpg",
+      "sizes": "64x64",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/uploaded-logo.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "/lamb-logo.png",
       "sizes": "64x64",
       "type": "image/png",

@@ -96,14 +96,14 @@ const About = () => {
       <section className={`relative py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-warm-blush'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className={`text-center ${darkMode ? 'text-white' : 'text-muted-purple'}`}>
-            <motion.h1
+            <motion.h1 
               className="font-display font-bold text-4xl lg:text-6xl mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
               About Lil' Hale Learners
             </motion.h1>
-            <motion.p
+            <motion.p 
               className="text-xl lg:text-2xl max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -150,7 +150,6 @@ const About = () => {
                 alt="Children learning together"
                 className="rounded-2xl shadow-xl w-full h-96 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
                   <h3 className="font-display font-bold text-xl mb-2">26 Years of Excellence</h3>
@@ -166,14 +165,14 @@ const About = () => {
       <section className={`py-20 ${darkMode ? 'bg-gray-700' : 'solid-bg-soft-rose'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <motion.h2
+            <motion.h2 
               className="font-display font-bold text-3xl lg:text-4xl mb-4 text-white"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               Our Core Values
             </motion.h2>
-            <motion.p
+            <motion.p 
               className="text-xl text-white max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -210,14 +209,14 @@ const About = () => {
       <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-dusty-blue'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <motion.h2
+            <motion.h2 
               className="font-display font-bold text-3xl lg:text-4xl mb-4 text-white"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               Meet Our Team
             </motion.h2>
-            <motion.p
+            <motion.p 
               className="text-xl text-white max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -264,14 +263,14 @@ const About = () => {
       <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-white'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <motion.h2
+            <motion.h2 
               className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-muted-purple'}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               Our Journey
             </motion.h2>
-            <motion.p
+            <motion.p 
               className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

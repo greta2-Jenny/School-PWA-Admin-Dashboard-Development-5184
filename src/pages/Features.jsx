@@ -14,49 +14,49 @@ const Features = () => {
       icon: FiBookOpen,
       title: 'Bible-based curriculum',
       description: 'Every lesson is grounded in Christian values and biblical teachings, helping children develop a strong moral foundation.',
-      color: 'from-blue-500 to-blue-600'
+      color: 'bg-muted-purple'
     },
     {
       icon: FiHeart,
       title: 'Wholistic Approach',
       description: 'We nurture the whole child - spiritually, emotionally, socially, and academically for complete development.',
-      color: 'from-pink-500 to-pink-600'
+      color: 'bg-soft-rose'
     },
     {
       icon: FiStar,
       title: 'Adventurer Club Program',
       description: 'Special extracurricular activities that encourage exploration, creativity, and character building.',
-      color: 'from-yellow-500 to-yellow-600'
+      color: 'bg-warm-blush'
     },
     {
       icon: FiHome,
       title: 'Complete Facilities',
       description: 'Modern, well-equipped classrooms and play areas designed specifically for early childhood learning.',
-      color: 'from-green-500 to-green-600'
+      color: 'bg-dusty-blue'
     },
     {
       icon: FiUsers,
       title: 'Small teacher to pupil ratio (2 teachers per class)',
       description: 'Individual attention ensures every child receives the support they need to thrive.',
-      color: 'from-purple-500 to-purple-600'
+      color: 'bg-muted-purple'
     },
     {
       icon: FiShield,
       title: 'Comfortable air-conditioned rooms',
       description: 'Climate-controlled environment ensures children are comfortable and focused on learning.',
-      color: 'from-cyan-500 to-cyan-600'
+      color: 'bg-soft-rose'
     },
     {
       icon: FiShield,
       title: 'Fun and safe environment (gated community)',
       description: 'Secure location in a gated community provides peace of mind for parents.',
-      color: 'from-red-500 to-red-600'
+      color: 'bg-warm-blush'
     },
     {
       icon: FiClock,
       title: '26 years of quality operation',
       description: 'Decades of experience in early childhood education with a proven track record of success.',
-      color: 'from-indigo-500 to-indigo-600'
+      color: 'bg-dusty-blue'
     }
   ];
 
@@ -77,18 +77,18 @@ const Features = () => {
 
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary-500 via-primary-400 to-secondary-500">
+      {/* Hero Section - Changed to solid muted purple */}
+      <section className={`relative py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-muted-purple'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
-            <motion.h1
+            <motion.h1 
               className="font-display font-bold text-4xl lg:text-6xl mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
               Special Features
             </motion.h1>
-            <motion.p
+            <motion.p 
               className="text-xl lg:text-2xl max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -104,14 +104,14 @@ const Features = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <motion.h2
+            <motion.h2 
               className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               What Makes Us Special
             </motion.h2>
-            <motion.p
+            <motion.p 
               className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -120,7 +120,6 @@ const Features = () => {
               Eight key features that set our school apart and create the perfect learning environment for your child
             </motion.p>
           </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {mainFeatures.map((feature, index) => (
               <motion.div
@@ -133,7 +132,7 @@ const Features = () => {
                 }`}
               >
                 <div className="flex items-start space-x-4">
-                  <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${feature.color} flex items-center justify-center flex-shrink-0`}>
+                  <div className={`w-16 h-16 rounded-full ${feature.color} flex items-center justify-center flex-shrink-0`}>
                     <SafeIcon icon={feature.icon} className="w-8 h-8 text-white" />
                   </div>
                   <div className="flex-1">
@@ -151,8 +150,8 @@ const Features = () => {
         </div>
       </section>
 
-      {/* Additional Features */}
-      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+      {/* Additional Features - Changed to solid dusty blue */}
+      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-dusty-blue'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -160,12 +159,11 @@ const Features = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className={`font-display font-bold text-3xl lg:text-4xl mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h2 className={`font-display font-bold text-3xl lg:text-4xl mb-6 ${darkMode ? 'text-white' : 'text-white'}`}>
                 Additional Benefits
               </h2>
-              <p className={`text-lg mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                Beyond our core features, we offer many additional benefits that enhance your child's 
-                learning experience and provide convenience for busy families.
+              <p className={`text-lg mb-6 ${darkMode ? 'text-gray-300' : 'text-white'}`}>
+                Beyond our core features, we offer many additional benefits that enhance your child's learning experience and provide convenience for busy families.
               </p>
               <div className="grid gap-3">
                 {additionalFeatures.map((feature, index) => (
@@ -179,14 +177,13 @@ const Features = () => {
                     <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                       <SafeIcon icon={FiCheck} className="w-4 h-4 text-white" />
                     </div>
-                    <span className={`${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                    <span className={`${darkMode ? 'text-gray-300' : 'text-white'}`}>
                       {feature}
                     </span>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -198,7 +195,6 @@ const Features = () => {
                 alt="Happy children learning"
                 className="rounded-2xl shadow-xl w-full h-96 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
                   <h3 className="font-display font-bold text-xl mb-2">Quality Care</h3>
@@ -214,14 +210,14 @@ const Features = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <motion.h2
+            <motion.h2 
               className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               Why Choose Lil' Hale Learners?
             </motion.h2>
-            <motion.p
+            <motion.p 
               className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -230,7 +226,6 @@ const Features = () => {
               See how our features compare to what you might expect from other schools
             </motion.p>
           </div>
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -328,17 +323,17 @@ const Features = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-primary-500 to-secondary-500">
+      {/* Call to Action - Changed to solid Soft Rose */}
+      <section className={`py-20 ${darkMode ? 'bg-gray-700' : 'solid-bg-soft-rose'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h2
+          <motion.h2 
             className="font-display font-bold text-3xl lg:text-4xl text-white mb-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
           >
             Experience Our Features Firsthand
           </motion.h2>
-          <motion.p
+          <motion.p 
             className="text-xl text-white/90 mb-8 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -346,16 +341,16 @@ const Features = () => {
           >
             Schedule a tour to see how our special features create the perfect learning environment for your child
           </motion.p>
-          <motion.div
+          <motion.div 
             className="flex flex-col sm:flex-row gap-4 justify-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <button className="px-8 py-4 bg-white text-primary-600 font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <button className="px-8 py-4 bg-white text-soft-rose font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 hover:shadow-lg hover:scale-105">
               📅 Schedule a Tour
             </button>
-            <button className="px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-primary-600 transition-all duration-300 hover:shadow-lg hover:scale-105">
+            <button className="px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-soft-rose transition-all duration-300 hover:shadow-lg hover:scale-105">
               📩 Contact Us
             </button>
           </motion.div>

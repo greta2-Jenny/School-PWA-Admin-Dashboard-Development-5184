@@ -8,7 +8,9 @@ import './index.css';
 // Function to check if images are loading properly
 const checkImageLoading = () => {
   const imagesToCheck = [
-    '/lamb-logo.png', // New lamb logo
+    '/lil-hale-lamb-logo.jpg', // New primary logo
+    '/uploaded-logo.png',
+    '/lamb-logo.png',
     '/custom-logo.png',
     '/logo.png',
     '/lamb-logo.svg',
@@ -17,7 +19,7 @@ const checkImageLoading = () => {
     '/favicon.ico',
     '/apple-touch-icon.png'
   ];
-  
+
   imagesToCheck.forEach(src => {
     const img = new Image();
     img.onload = () => console.log(`Image loaded successfully: ${src}`);
@@ -36,7 +38,7 @@ if ('serviceWorker' in navigator) {
       .catch((registrationError) => {
         console.log('SW registration failed: ', registrationError);
       });
-      
+
     // Check image loading
     checkImageLoading();
   });

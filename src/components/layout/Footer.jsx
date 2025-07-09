@@ -35,8 +35,10 @@ const Footer = () => {
     'Tutorial Classes'
   ];
 
-  // Use the lamb logo as primary option
+  // Updated logo options with the new JPG file as primary
   const logoOptions = [
+    "/lil-hale-lamb-logo.jpg", // New primary logo
+    "/uploaded-logo.png",
     "/lamb-logo.png",
     "/custom-logo.png",
     "/logo.png",
@@ -54,10 +56,10 @@ const Footer = () => {
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
                 {!logoError ? (
-                  <img 
-                    src={logoOptions[0]} 
-                    alt="Lil' Hale Learners Logo" 
-                    className="w-16 h-16 object-contain"
+                  <img
+                    src={logoOptions[0]}
+                    alt="Lil' Hale Learners Logo"
+                    className="w-16 h-16 object-contain rounded-lg"
                     style={{ objectFit: 'contain' }}
                     onError={(e) => {
                       console.error('Footer logo failed to load:', e);
@@ -210,7 +212,7 @@ const Footer = () => {
                 className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-muted-purple hover:bg-gray-100 transition-all duration-300"
               >
                 <SafeIcon icon={FiArrowUp} className="w-5 h-5" />
-              </button>
+              </motion.button>
             </div>
           </div>
 

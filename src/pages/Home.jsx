@@ -6,11 +6,7 @@ import SafeIcon from '../common/SafeIcon';
 import { useTheme } from '../contexts/ThemeContext';
 import { useData } from '../contexts/DataContext';
 
-const { 
-  FiArrowRight, FiCheck, FiHeart, FiShield, FiStar, FiUsers, 
-  FiBookOpen, FiCalendar, FiDownload, FiMessageCircle, FiHome,
-  FiClock, FiTarget, FiAward
-} = FiIcons;
+const { FiArrowRight, FiCheck, FiHeart, FiShield, FiStar, FiUsers, FiBookOpen, FiCalendar, FiDownload, FiMessageCircle, FiHome, FiClock, FiTarget, FiAward } = FiIcons;
 
 const Home = () => {
   const { darkMode } = useTheme();
@@ -47,30 +43,12 @@ const Home = () => {
 
   // Gallery images for the homepage
   const galleryImages = [
-    {
-      src: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=300&fit=crop',
-      title: 'Classroom Activities'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=300&fit=crop',
-      title: 'Story Time'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop',
-      title: 'Outdoor Play'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=400&h=300&fit=crop',
-      title: 'Art Projects'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=300&fit=crop',
-      title: 'Learning Together'
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=300&fit=crop',
-      title: 'Reading Corner'
-    }
+    { src: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=300&fit=crop', title: 'Classroom Activities' },
+    { src: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=300&fit=crop', title: 'Story Time' },
+    { src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop', title: 'Outdoor Play' },
+    { src: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=400&h=300&fit=crop', title: 'Art Projects' },
+    { src: 'https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=300&fit=crop', title: 'Learning Together' },
+    { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=300&fit=crop', title: 'Reading Corner' }
   ];
 
   // Special features for "What Makes Us Special" section
@@ -145,16 +123,16 @@ const Home = () => {
               >
                 Nurturing Young Minds Through Faith
               </motion.h1>
-              
               <motion.p
-                className={`text-xl lg:text-2xl mb-12 font-body font-medium leading-relaxed ${darkMode ? 'text-gray-300' : 'text-muted-purple'}`}
+                className={`text-xl lg:text-2xl mb-12 font-body font-medium leading-relaxed ${
+                  darkMode ? 'text-gray-300' : 'text-muted-purple'
+                }`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
                 {settings.tagline}
               </motion.p>
-              
               <motion.div
                 className="flex flex-col sm:flex-row gap-6"
                 initial={{ opacity: 0, y: 20 }}
@@ -177,7 +155,6 @@ const Home = () => {
                 </Link>
               </motion.div>
             </motion.div>
-            
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -249,7 +226,6 @@ const Home = () => {
               Age-appropriate programs designed to nurture every child's unique potential
             </motion.p>
           </div>
-          
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {data.courses.slice(0, 6).map((course, index) => (
               <motion.div
@@ -297,7 +273,6 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
-          
           <div className="text-center mt-12">
             <Link
               to="/programs"
@@ -330,7 +305,6 @@ const Home = () => {
               Eight key features that set our school apart and create the perfect learning environment for your child
             </motion.p>
           </div>
-          
           <div className="grid md:grid-cols-2 gap-8">
             {specialFeatures.map((feature, index) => (
               <motion.div
@@ -379,7 +353,6 @@ const Home = () => {
               Glimpses of joy, learning, and growth at Lil' Hale Learners
             </motion.p>
           </div>
-          
           <div className="gallery-grid">
             {galleryImages.map((image, index) => (
               <motion.div
@@ -390,11 +363,7 @@ const Home = () => {
                 className="gallery-item border-2 border-soft-rose"
               >
                 <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={image.src}
-                    alt={image.title}
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={image.src} alt={image.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute inset-0 bg-soft-rose bg-opacity-80 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-6 w-full">
@@ -404,7 +373,6 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
-          
           <div className="text-center mt-12">
             <Link
               to="/gallery"
@@ -437,7 +405,6 @@ const Home = () => {
               Hear from the families who have trusted us with their children's education
             </motion.p>
           </div>
-          
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div
@@ -473,7 +440,6 @@ const Home = () => {
               </motion.div>
             ))}
           </div>
-          
           <div className="text-center mt-12">
             <motion.div
               className="flex flex-col sm:flex-row gap-6 justify-center"
