@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
@@ -12,6 +12,7 @@ const Footer = () => {
   const { darkMode } = useTheme();
   const { data } = useData();
   const settings = data.settings;
+  const [logoError, setLogoError] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -34,18 +35,52 @@ const Footer = () => {
     'Tutorial Classes'
   ];
 
+  // Use the custom logo as primary option
+  const logoOptions = [
+    "/custom-logo.png",
+    "/logo.png",
+    "/lamb-logo.svg",
+    "/logo-icon.svg",
+    "/favicon.svg"
+  ];
+
   return (
     <footer className={`${darkMode ? 'bg-gray-900' : 'solid-bg-muted-purple'} transition-colors duration-300`}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* School Info */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-4">
-              <img 
-                src="/logo-icon.svg" 
-                alt="Lil' Hale Learners Logo" 
-                className="w-14 h-14 rounded-xl shadow-clean"
-              />
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 flex-shrink-0 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                {!logoError ? (
+                  <img 
+                    src={logoOptions[0]} 
+                    alt="Lil' Hale Learners Logo" 
+                    className="w-12 h-12 object-contain"
+                    onError={(e) => {
+                      console.error('Footer logo failed to load:', e);
+                      // Try the next logo option
+                      e.target.src = logoOptions[1];
+                      // If all fail, set error to true
+                      e.target.onerror = () => {
+                        e.target.src = logoOptions[2];
+                        e.target.onerror = () => {
+                          e.target.src = logoOptions[3];
+                          e.target.onerror = () => {
+                            e.target.src = logoOptions[4];
+                            e.target.onerror = () => setLogoError(true);
+                          };
+                        };
+                      };
+                    }}
+                  />
+                ) : (
+                  // Fallback to text-based logo
+                  <div className="w-12 h-12 bg-muted-purple rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold text-2xl">L</span>
+                  </div>
+                )}
+              </div>
               <div>
                 <h3 className="font-display font-bold text-xl text-white">
                   {settings.siteName}

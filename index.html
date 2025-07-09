@@ -10,6 +10,11 @@
     <meta name="description" content="Lil' Hale Learners - Christian toddler school dedicated to nurturing young minds through faith, play, and early academic exploration" />
     <meta name="theme-color" content="#635B86" />
     
+    <!-- Favicons -->
+    <link rel="icon" href="/custom-logo.png" sizes="any" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
@@ -38,9 +43,23 @@
         width: 100vw;
       }
       
+      .loader-content {
+        text-align: center;
+      }
+      
+      .loader-text {
+        margin-top: 16px;
+        color: white;
+        font-family: 'Comfortaa', cursive;
+        font-weight: 700;
+      }
+      
       .loader-icon {
         width: 80px;
         height: 80px;
+        background-color: white;
+        border-radius: 50%;
+        padding: 10px;
         animation: pulse 1.5s infinite;
       }
       
@@ -54,7 +73,12 @@
   <body>
     <div id="root">
       <div class="loader">
-        <img src="/logo-icon.svg" alt="Loading..." class="loader-icon" />
+        <div class="loader-content">
+          <div class="loader-icon-container">
+            <div class="loader-icon">L</div>
+          </div>
+          <div class="loader-text">Loading...</div>
+        </div>
       </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>

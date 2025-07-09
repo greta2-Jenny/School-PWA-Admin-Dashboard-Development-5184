@@ -11,6 +11,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const { darkMode } = useTheme();
+  const [logoError, setLogoError] = useState(false);
 
   const navItems = [
     { path: '/', label: 'Home', icon: FiHome },
@@ -21,6 +22,15 @@ const Header = () => {
   ];
 
   const isActive = (path) => location.pathname === path;
+
+  // Use the custom logo as primary option
+  const logoOptions = [
+    "/custom-logo.png",
+    "/logo.png",
+    "/lamb-logo.svg",
+    "/logo-icon.svg",
+    "/favicon.svg"
+  ];
 
   return (
     <motion.header
@@ -38,18 +48,43 @@ const Header = () => {
           <Link to="/">
             <motion.div 
               whileHover={{ scale: 1.03 }}
-              className="flex items-center space-x-4"
+              className="flex items-center gap-4"
             >
-              <img 
-                src="/logo-icon.svg" 
-                alt="Lil' Hale Learners Logo" 
-                className="w-12 h-12 rounded-xl shadow-clean"
-              />
-              <div>
-                <h1 className="font-display font-bold text-xl text-white">
+              <div className="w-12 h-12 flex-shrink-0 bg-white rounded-full flex items-center justify-center overflow-hidden">
+                {!logoError ? (
+                  <img 
+                    src={logoOptions[0]} 
+                    alt="Lil' Hale Learners Logo" 
+                    className="w-10 h-10 object-contain"
+                    onError={(e) => {
+                      console.error('Logo failed to load:', e);
+                      // Try the next logo option
+                      e.target.src = logoOptions[1];
+                      // If all fail, set error to true
+                      e.target.onerror = () => {
+                        e.target.src = logoOptions[2];
+                        e.target.onerror = () => {
+                          e.target.src = logoOptions[3];
+                          e.target.onerror = () => {
+                            e.target.src = logoOptions[4];
+                            e.target.onerror = () => setLogoError(true);
+                          };
+                        };
+                      };
+                    }}
+                  />
+                ) : (
+                  // Fallback to text-based logo
+                  <div className="w-10 h-10 bg-muted-purple rounded-full flex items-center justify-center">
+                    <span className="text-white font-bold text-xl">L</span>
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-col">
+                <h1 className="font-display font-bold text-xl text-white leading-tight">
                   Lil' Hale Learners
                 </h1>
-                <p className="text-sm font-body font-medium text-warm-blush">
+                <p className="text-sm font-body font-medium text-warm-blush leading-tight">
                   Christian Toddler School
                 </p>
               </div>

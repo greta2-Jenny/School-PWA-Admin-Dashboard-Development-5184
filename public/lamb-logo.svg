@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+  
+  <!-- Lamb body (main oval) -->
+  <ellipse cx="32" cy="35" rx="18" ry="15" fill="#F8F8F8"/>
+  
+  <!-- Lamb head -->
+  <circle cx="32" cy="22" r="12" fill="#FFFFFF"/>
+  
+  <!-- Ears -->
+  <ellipse cx="25" cy="16" rx="3" ry="5" fill="#F0F0F0" transform="rotate(-20 25 16)"/>
+  <ellipse cx="39" cy="16" rx="3" ry="5" fill="#F0F0F0" transform="rotate(20 39 16)"/>
+  
+  <!-- Eyes -->
+  <circle cx="28" cy="20" r="2" fill="#333333"/>
+  <circle cx="36" cy="20" r="2" fill="#333333"/>
+  <circle cx="28.5" cy="19.5" r="0.5" fill="#FFFFFF"/>
+  <circle cx="36.5" cy="19.5" r="0.5" fill="#FFFFFF"/>
+  
+  <!-- Nose -->
+  <ellipse cx="32" cy="25" rx="1.5" ry="1" fill="#FFB6C1"/>
+  
+  <!-- Mouth -->
+  <path d="M30 27 Q32 29 34 27" stroke="#333333" stroke-width="1" fill="none" stroke-linecap="round"/>
+  
+  <!-- Legs -->
+  <rect x="24" y="45" width="3" height="8" rx="1.5" fill="#F0F0F0"/>
+  <rect x="29" y="45" width="3" height="8" rx="1.5" fill="#F0F0F0"/>
+  <rect x="34" y="45" width="3" height="8" rx="1.5" fill="#F0F0F0"/>
+  <rect x="39" y="45" width="3" height="8" rx="1.5" fill="#F0F0F0"/>
+  
+  <!-- Burgundy scarf -->
+  <path d="M20 30 Q32 28 44 30" stroke="#9C2542" stroke-width="4" stroke-linecap="round"/>
+  <path d="M44 30 Q46 35 48 40" stroke="#9C2542" stroke-width="3" stroke-linecap="round"/>
+  <path d="M46 38 Q48 40 50 42" stroke="#9C2542" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Scarf pattern (small dots) -->
+  <circle cx="26" cy="29" r="0.5" fill="#7A1E35"/>
+  <circle cx="32" cy="28" r="0.5" fill="#7A1E35"/>
+  <circle cx="38" cy="29" r="0.5" fill="#7A1E35"/>
+</svg>
