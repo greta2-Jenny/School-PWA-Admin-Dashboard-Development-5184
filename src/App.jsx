@@ -15,10 +15,12 @@ import FloatingMessenger from './components/ui/FloatingMessenger';
 import Home from './pages/Home';
 import About from './pages/About';
 import Programs from './pages/Programs';
-import Features from './pages/Features';
 import Enrollment from './pages/Enrollment';
-import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+
+// Hidden/Moved Pages - Still accessible by direct URL
+import Features from './pages/Features';
+import Gallery from './pages/Gallery';
 import Forums from './pages/Forums';
 import Courses from './pages/Courses';
 import Certificates from './pages/Certificates';
@@ -79,14 +81,16 @@ function App() {
 
             <AnimatePresence mode="wait">
               <Routes>
-                {/* Public Routes */}
+                {/* Main Public Routes */}
                 <Route path="/" element={<><Header /><Home /><Footer /></>} />
                 <Route path="/about" element={<><Header /><About /><Footer /></>} />
                 <Route path="/programs" element={<><Header /><Programs /><Footer /></>} />
-                <Route path="/features" element={<><Header /><Features /><Footer /></>} />
                 <Route path="/enrollment" element={<><Header /><Enrollment /><Footer /></>} />
-                <Route path="/gallery" element={<><Header /><Gallery /><Footer /></>} />
                 <Route path="/contact" element={<><Header /><Contact /><Footer /></>} />
+                
+                {/* Hidden/Moved Routes - Still accessible by direct URL */}
+                <Route path="/features" element={<><Header /><Features /><Footer /></>} />
+                <Route path="/gallery" element={<><Header /><Gallery /><Footer /></>} />
                 <Route path="/forums" element={<><Header /><Forums /><Footer /></>} />
                 <Route path="/courses" element={<><Header /><Courses /><Footer /></>} />
                 <Route path="/certificates" element={<><Header /><Certificates /><Footer /></>} />
@@ -100,6 +104,9 @@ function App() {
                 <Route path="/admin/analytics" element={<PrivateRoute><AdminAnalytics /></PrivateRoute>} />
                 <Route path="/admin/media" element={<PrivateRoute><AdminMedia /></PrivateRoute>} />
                 <Route path="/admin/settings" element={<PrivateRoute><AdminSettings /></PrivateRoute>} />
+                <Route path="/admin/forums" element={<PrivateRoute><Forums /></PrivateRoute>} />
+                <Route path="/admin/progress" element={<PrivateRoute><Progress /></PrivateRoute>} />
+                <Route path="/admin/certificates" element={<PrivateRoute><Certificates /></PrivateRoute>} />
               </Routes>
             </AnimatePresence>
           </div>

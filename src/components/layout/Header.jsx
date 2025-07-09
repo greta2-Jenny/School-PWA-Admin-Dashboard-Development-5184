@@ -5,7 +5,7 @@ import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../../common/SafeIcon';
 import { useTheme } from '../../contexts/ThemeContext';
 
-const { FiMenu, FiX, FiHome, FiInfo, FiBookOpen, FiStar, FiUserPlus, FiImage, FiPhone, FiMessageCircle, FiUsers, FiAward, FiTrendingUp } = FiIcons;
+const { FiMenu, FiX, FiHome, FiInfo, FiBookOpen, FiUserPlus, FiPhone } = FiIcons;
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,13 +16,7 @@ const Header = () => {
     { path: '/', label: 'Home', icon: FiHome },
     { path: '/about', label: 'About', icon: FiInfo },
     { path: '/programs', label: 'Programs', icon: FiBookOpen },
-    { path: '/features', label: 'Features', icon: FiStar },
-    { path: '/courses', label: 'Courses', icon: FiBookOpen },
     { path: '/enrollment', label: 'Enrollment', icon: FiUserPlus },
-    { path: '/gallery', label: 'Gallery', icon: FiImage },
-    { path: '/forums', label: 'Forums', icon: FiMessageCircle },
-    { path: '/progress', label: 'Progress', icon: FiTrendingUp },
-    { path: '/certificates', label: 'Certificates', icon: FiAward },
     { path: '/contact', label: 'Contact', icon: FiPhone }
   ];
 
@@ -34,42 +28,46 @@ const Header = () => {
       animate={{ y: 0 }}
       className={`sticky top-0 z-50 transition-all duration-300 ${
         darkMode 
-          ? 'bg-gray-900/95 backdrop-blur-md border-b border-gray-800' 
-          : 'bg-white/95 backdrop-blur-md border-b border-gray-200'
-      }`}
+          ? 'bg-gray-900 border-b border-gray-700' 
+          : 'solid-bg-muted-purple border-b border-muted-purple-light'
+      } shadow-clean`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-3"
-          >
-            <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">L</span>
-            </div>
-            <div>
-              <h1 className={`font-display font-bold text-lg ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-                Lil' Hale Learners
-              </h1>
-              <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                Christian Toddler School
-              </p>
-            </div>
-          </motion.div>
+          <Link to="/">
+            <motion.div 
+              whileHover={{ scale: 1.03 }}
+              className="flex items-center space-x-4"
+            >
+              <img 
+                src="/logo-icon.svg" 
+                alt="Lil' Hale Learners Logo" 
+                className="w-12 h-12 rounded-xl shadow-clean"
+              />
+              <div>
+                <h1 className="font-display font-bold text-xl text-white">
+                  Lil' Hale Learners
+                </h1>
+                <p className="text-sm font-body font-medium text-warm-blush">
+                  Christian Toddler School
+                </p>
+              </div>
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-1">
+          <nav className="hidden md:flex items-center space-x-2">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center space-x-1 ${
+                className={`relative px-6 py-3 text-base font-display font-semibold transition-all duration-300 flex items-center space-x-2 rounded-lg ${
                   isActive(item.path)
-                    ? 'bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-400'
-                    : darkMode
-                    ? 'text-gray-300 hover:text-white hover:bg-gray-800'
-                    : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
+                    ? 'text-white bg-soft-rose shadow-clean'
+                    : darkMode 
+                      ? 'text-gray-300 hover:text-white hover:bg-gray-800' 
+                      : 'text-white hover:text-warm-blush hover:bg-muted-purple-light'
                 }`}
               >
                 <SafeIcon icon={item.icon} className="w-4 h-4" />
@@ -81,11 +79,12 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`lg:hidden p-2 rounded-lg ${
+            className={`md:hidden p-3 rounded-lg transition-all duration-300 ${
               darkMode 
                 ? 'text-gray-300 hover:text-white hover:bg-gray-800' 
-                : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
+                : 'text-warm-blush hover:text-white hover:bg-muted-purple-light'
             }`}
+            aria-label="Toggle menu"
           >
             <SafeIcon icon={isMenuOpen ? FiX : FiMenu} className="w-6 h-6" />
           </button>
@@ -98,7 +97,8 @@ const Header = () => {
             opacity: isMenuOpen ? 1 : 0, 
             height: isMenuOpen ? 'auto' : 0 
           }}
-          className="lg:hidden overflow-hidden"
+          transition={{ duration: 0.3 }}
+          className="md:hidden overflow-hidden"
         >
           <nav className="py-4 space-y-2">
             {navItems.map((item) => (
@@ -106,15 +106,15 @@ const Header = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 flex items-center space-x-2 ${
+                className={`block px-6 py-3 rounded-lg text-base font-display font-semibold transition-all duration-300 flex items-center space-x-3 ${
                   isActive(item.path)
-                    ? 'bg-primary-100 text-primary-600 dark:bg-primary-900 dark:text-primary-400'
-                    : darkMode
-                    ? 'text-gray-300 hover:text-white hover:bg-gray-800'
-                    : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
+                    ? 'bg-soft-rose text-white shadow-clean'
+                    : darkMode 
+                      ? 'text-gray-300 hover:text-white hover:bg-gray-800' 
+                      : 'text-white hover:text-warm-blush hover:bg-muted-purple-light'
                 }`}
               >
-                <SafeIcon icon={item.icon} className="w-4 h-4" />
+                <SafeIcon icon={item.icon} className="w-5 h-5" />
                 <span>{item.label}</span>
               </Link>
             ))}

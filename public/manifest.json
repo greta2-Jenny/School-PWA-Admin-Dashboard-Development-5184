@@ -4,8 +4,8 @@
   "description": "Christian toddler school dedicated to nurturing young minds through faith, play, and early academic exploration",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ff6b9d",
+  "background_color": "#635B86",
+  "theme_color": "#635B86",
   "orientation": "portrait-primary",
   "scope": "/",
   "icons": [

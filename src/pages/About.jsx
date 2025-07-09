@@ -64,20 +64,38 @@ const About = () => {
   ];
 
   const milestones = [
-    { year: '1998', event: 'Lil\' Hale Learners was founded with a vision to provide Christ-centered education' },
-    { year: '2003', event: 'Expanded to include Kindergarten program with state-of-the-art facilities' },
-    { year: '2010', event: 'Introduced the Adventurer Club Program for enhanced extracurricular activities' },
-    { year: '2015', event: 'Achieved accreditation and recognition for excellence in early childhood education' },
-    { year: '2020', event: 'Adapted to modern learning with enhanced safety protocols and technology integration' },
-    { year: '2024', event: 'Celebrating 26 years of nurturing young minds and serving our community' }
+    {
+      year: '1998',
+      event: 'Lil\' Hale Learners was founded with a vision to provide Christ-centered education'
+    },
+    {
+      year: '2003',
+      event: 'Expanded to include Kindergarten program with state-of-the-art facilities'
+    },
+    {
+      year: '2010',
+      event: 'Introduced the Adventurer Club Program for enhanced extracurricular activities'
+    },
+    {
+      year: '2015',
+      event: 'Achieved accreditation and recognition for excellence in early childhood education'
+    },
+    {
+      year: '2020',
+      event: 'Adapted to modern learning with enhanced safety protocols and technology integration'
+    },
+    {
+      year: '2024',
+      event: 'Celebrating 26 years of nurturing young minds and serving our community'
+    }
   ];
 
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900' : 'bg-white'}`}>
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary-500 via-primary-400 to-secondary-500">
+      {/* Hero Section - Solid Warm Blush */}
+      <section className={`relative py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-warm-blush'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-white">
+          <div className={`text-center ${darkMode ? 'text-white' : 'text-muted-purple'}`}>
             <motion.h1
               className="font-display font-bold text-4xl lg:text-6xl mb-6"
               initial={{ opacity: 0, y: 20 }}
@@ -97,8 +115,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission & Vision */}
-      <section className="py-20">
+      {/* Mission & Vision - Solid White */}
+      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-white'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -106,25 +124,21 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className={`font-display font-bold text-3xl lg:text-4xl mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h2 className={`font-display font-bold text-3xl lg:text-4xl mb-6 ${darkMode ? 'text-white' : 'text-muted-purple'}`}>
                 Our Mission
               </h2>
               <p className={`text-lg leading-relaxed mb-6 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                To provide a loving, Christ-centered environment where young children can grow spiritually, 
-                emotionally, socially, and academically. We believe every child is a precious gift from God 
-                and deserves the best foundation for their educational journey.
+                To provide a loving, Christ-centered environment where young children can grow spiritually, emotionally, socially, and academically. We believe every child is a precious gift from God and deserves the best foundation for their educational journey.
               </p>
-              <div className={`p-6 rounded-2xl ${darkMode ? 'bg-gray-800' : 'bg-primary-50'}`}>
-                <h3 className={`font-display font-bold text-xl mb-3 ${darkMode ? 'text-white' : 'text-primary-900'}`}>
+              <div className={`p-6 rounded-2xl ${darkMode ? 'bg-gray-700' : 'bg-soft-rose'}`}>
+                <h3 className={`font-display font-bold text-xl mb-3 ${darkMode ? 'text-white' : 'text-white'}`}>
                   Our Vision
                 </h3>
-                <p className={`${darkMode ? 'text-gray-300' : 'text-primary-800'}`}>
-                  To be the leading Christian early childhood education center, raising confident, 
-                  compassionate, and capable children who will make a positive impact in their communities.
+                <p className={`${darkMode ? 'text-gray-300' : 'text-white'}`}>
+                  To be the leading Christian early childhood education center, raising confident, compassionate, and capable children who will make a positive impact in their communities.
                 </p>
               </div>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -148,19 +162,19 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values */}
-      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+      {/* Values - Solid Soft Rose */}
+      <section className={`py-20 ${darkMode ? 'bg-gray-700' : 'solid-bg-soft-rose'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2
-              className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}
+              className="font-display font-bold text-3xl lg:text-4xl mb-4 text-white"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               Our Core Values
             </motion.h2>
             <motion.p
-              className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto`}
+              className="text-xl text-white max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -168,7 +182,6 @@ const About = () => {
               The principles that guide everything we do at Lil' Hale Learners
             </motion.p>
           </div>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <motion.div
@@ -176,17 +189,15 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 ${
-                  darkMode ? 'bg-gray-700' : 'bg-white'
-                }`}
+                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-soft-rose rounded-full flex items-center justify-center mb-4">
                   <SafeIcon icon={value.icon} className="w-8 h-8 text-white" />
                 </div>
-                <h3 className={`font-display font-bold text-xl mb-3 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className="font-display font-bold text-xl mb-3 text-muted-purple">
                   {value.title}
                 </h3>
-                <p className={`text-sm leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <p className="text-sm leading-relaxed text-gray-700">
                   {value.description}
                 </p>
               </motion.div>
@@ -195,19 +206,19 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team */}
-      <section className="py-20">
+      {/* Team - Solid Dusty Blue */}
+      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-dusty-blue'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2
-              className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}
+              className="font-display font-bold text-3xl lg:text-4xl mb-4 text-white"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               Meet Our Team
             </motion.h2>
             <motion.p
-              className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto`}
+              className="text-xl text-white max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -215,7 +226,6 @@ const About = () => {
               Dedicated educators who are passionate about nurturing young minds
             </motion.p>
           </div>
-
           <div className="grid md:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <motion.div
@@ -223,9 +233,7 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`text-center p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 ${
-                  darkMode ? 'bg-gray-800' : 'bg-white'
-                }`}
+                className="text-center bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
                 <div className="relative mb-6">
                   <img
@@ -233,17 +241,17 @@ const About = () => {
                     alt={member.name}
                     className="w-32 h-32 rounded-full object-cover mx-auto shadow-lg"
                   />
-                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
+                  <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-dusty-blue rounded-full flex items-center justify-center">
                     <SafeIcon icon={FiHeart} className="w-4 h-4 text-white" />
                   </div>
                 </div>
-                <h3 className={`font-display font-bold text-xl mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className="font-display font-bold text-xl mb-2 text-muted-purple">
                   {member.name}
                 </h3>
-                <p className={`text-sm font-medium mb-3 ${darkMode ? 'text-primary-400' : 'text-primary-600'}`}>
+                <p className="text-sm font-medium mb-3 text-dusty-blue">
                   {member.role}
                 </p>
-                <p className={`text-sm leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <p className="text-sm leading-relaxed text-gray-700">
                   {member.description}
                 </p>
               </motion.div>
@@ -252,19 +260,19 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}>
+      {/* Timeline - Solid White */}
+      <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-white'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2
-              className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}
+              className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-muted-purple'}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               Our Journey
             </motion.h2>
             <motion.p
-              className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto`}
+              className={`text-xl ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -272,7 +280,6 @@ const About = () => {
               Key milestones in our 26-year journey of educational excellence
             </motion.p>
           </div>
-
           <div className="max-w-4xl mx-auto">
             {milestones.map((milestone, index) => (
               <motion.div
@@ -283,15 +290,15 @@ const About = () => {
                 className={`flex items-center mb-8 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
               >
                 <div className={`flex-1 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                  <div className={`inline-block px-4 py-2 rounded-full bg-gradient-primary text-white font-bold mb-2`}>
+                  <div className="inline-block px-4 py-2 rounded-full bg-soft-rose text-white font-bold mb-2">
                     {milestone.year}
                   </div>
                   <p className={`text-sm leading-relaxed ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                     {milestone.event}
                   </p>
                 </div>
-                <div className="w-4 h-4 bg-gradient-primary rounded-full flex-shrink-0 relative">
-                  <div className={`absolute top-4 w-0.5 h-16 bg-gradient-primary ${index === milestones.length - 1 ? 'hidden' : ''}`}></div>
+                <div className="w-4 h-4 bg-soft-rose rounded-full flex-shrink-0 relative">
+                  <div className={`absolute top-4 w-0.5 h-16 bg-soft-rose ${index === milestones.length - 1 ? 'hidden' : ''}`}></div>
                 </div>
                 <div className="flex-1"></div>
               </motion.div>
@@ -300,8 +307,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Christian Values */}
-      <section className="py-20 bg-gradient-to-r from-primary-500 to-secondary-500">
+      {/* Christian Values - Solid Muted Purple */}
+      <section className={`py-20 ${darkMode ? 'bg-gray-700' : 'solid-bg-muted-purple'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -313,8 +320,7 @@ const About = () => {
               Founded on Faith
             </h2>
             <p className="text-xl max-w-3xl mx-auto mb-8 text-white/90">
-              Our Christian foundation shapes every aspect of our school, from curriculum to daily interactions. 
-              We believe in nurturing not just the mind, but the heart and soul of every child.
+              Our Christian foundation shapes every aspect of our school, from curriculum to daily interactions. We believe in nurturing not just the mind, but the heart and soul of every child.
             </p>
             <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
               <p className="text-lg italic">

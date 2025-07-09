@@ -13,7 +13,6 @@ const FloatingMessenger = () => {
 
   const handleSendMessage = () => {
     if (message.trim()) {
-      // In a real app, this would send the message to a messaging service
       alert('Message sent! We\'ll get back to you soon.');
       setMessage('');
       setIsOpen(false);
@@ -24,62 +23,62 @@ const FloatingMessenger = () => {
     <>
       {/* Floating Button */}
       <motion.button
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-primary rounded-full shadow-lg flex items-center justify-center text-white hover:shadow-xl transition-all duration-300"
+        className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-soft-rose rounded-xl shadow-clean flex items-center justify-center text-white hover:bg-soft-rose-light transition-all duration-300"
       >
-        <SafeIcon icon={isOpen ? FiX : FiMessageCircle} className="w-6 h-6" />
+        <SafeIcon icon={isOpen ? FiX : FiMessageCircle} className="w-7 h-7" />
       </motion.button>
 
       {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className={`fixed bottom-24 right-6 z-50 w-80 rounded-lg shadow-xl overflow-hidden ${
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className={`fixed bottom-28 right-6 z-50 w-80 rounded-2xl shadow-clean overflow-hidden ${
               darkMode ? 'bg-gray-800' : 'bg-white'
-            }`}
+            } border-2 border-dusty-blue`}
           >
             {/* Header */}
-            <div className="bg-gradient-primary p-4">
-              <h3 className="text-white font-semibold">Message Us</h3>
-              <p className="text-white/80 text-sm">We'll get back to you soon!</p>
+            <div className="bg-muted-purple p-6">
+              <h3 className="text-white font-display font-bold text-xl">Message Us</h3>
+              <p className="text-white/90 text-sm font-body font-medium">We'll get back to you soon!</p>
             </div>
 
             {/* Content */}
-            <div className="p-4 space-y-4">
-              <div className="space-y-2">
-                <div className={`p-3 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
-                  <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+            <div className="p-6 space-y-6">
+              <div className="space-y-4">
+                <div className={`p-4 rounded-xl ${darkMode ? 'bg-gray-700' : 'bg-warm-blush-light'} border border-dotted border-dusty-blue/30`}>
+                  <p className={`text-sm font-body font-medium ${darkMode ? 'text-gray-300' : 'text-dark'}`}>
                     Hi! How can we help you today?
                   </p>
                 </div>
               </div>
 
               {/* Message Input */}
-              <div className="flex space-x-2">
+              <div className="flex space-x-3">
                 <input
                   type="text"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                   placeholder="Type your message..."
-                  className={`flex-1 px-3 py-2 rounded-lg border transition-colors duration-200 ${
+                  className={`flex-1 px-4 py-3 rounded-xl border-2 transition-all duration-300 font-body font-medium ${
                     darkMode 
                       ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
-                      : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
-                  } focus:outline-none focus:ring-2 focus:ring-primary-500`}
+                      : 'bg-white border-dusty-blue/30 text-dark placeholder-dark/50'
+                  } focus:outline-none focus:border-soft-rose focus:scale-103`}
                 />
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleSendMessage}
-                  className="px-4 py-2 bg-gradient-primary text-white rounded-lg hover:shadow-md transition-all duration-200"
+                  className="px-4 py-3 bg-soft-rose text-white rounded-xl hover:bg-soft-rose-light transition-all duration-300"
                 >
-                  <SafeIcon icon={FiSend} className="w-4 h-4" />
+                  <SafeIcon icon={FiSend} className="w-5 h-5" />
                 </motion.button>
               </div>
             </div>

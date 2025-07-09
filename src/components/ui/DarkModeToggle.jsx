@@ -11,20 +11,17 @@ const DarkModeToggle = () => {
 
   return (
     <motion.button
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       onClick={toggleDarkMode}
-      className={`fixed top-20 right-4 z-40 w-12 h-12 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center ${
+      className={`fixed bottom-24 right-6 z-40 w-14 h-14 rounded-xl shadow-clean transition-all duration-300 flex items-center justify-center ${
         darkMode 
-          ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700' 
-          : 'bg-white text-gray-600 hover:bg-gray-50'
+          ? 'bg-warm-blush text-muted-purple hover:bg-warm-blush-light' 
+          : 'bg-dusty-blue text-white hover:bg-dusty-blue-light'
       }`}
       title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
     >
-      <SafeIcon 
-        icon={darkMode ? FiSun : FiMoon} 
-        className="w-5 h-5" 
-      />
+      <SafeIcon icon={darkMode ? FiSun : FiMoon} className="w-6 h-6" />
     </motion.button>
   );
 };
