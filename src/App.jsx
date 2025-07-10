@@ -17,6 +17,7 @@ import About from './pages/About';
 import Programs from './pages/Programs';
 import Enrollment from './pages/Enrollment';
 import Contact from './pages/Contact';
+import ThankYou from './pages/ThankYou';
 
 // Hidden/Moved Pages - Still accessible by direct URL
 import Features from './pages/Features';
@@ -56,7 +57,7 @@ const preloadImages = () => {
     '/favicon.ico',
     '/apple-touch-icon.png'
   ];
-
+  
   imagesToPreload.forEach(src => {
     const img = new Image();
     img.src = src;
@@ -69,13 +70,13 @@ function App() {
   useEffect(() => {
     // Preload images when component mounts
     preloadImages();
-
+    
     const handleOnline = () => setIsOnline(true);
     const handleOffline = () => setIsOnline(false);
-
+    
     window.addEventListener('online', handleOnline);
     window.addEventListener('offline', handleOffline);
-
+    
     return () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
@@ -91,7 +92,7 @@ function App() {
             <PWAUpdateNotification />
             <DarkModeToggle />
             <FloatingMessenger />
-
+            
             {!isOnline && (
               <motion.div
                 initial={{ opacity: 0, y: -50 }}
@@ -101,7 +102,7 @@ function App() {
                 You are currently offline. Some features may not be available.
               </motion.div>
             )}
-
+            
             <AnimatePresence mode="wait">
               <Routes>
                 {/* Main Public Routes */}
@@ -110,7 +111,8 @@ function App() {
                 <Route path="/programs" element={<><Header /><Programs /><Footer /></>} />
                 <Route path="/enrollment" element={<><Header /><Enrollment /><Footer /></>} />
                 <Route path="/contact" element={<><Header /><Contact /><Footer /></>} />
-
+                <Route path="/thank-you" element={<><Header /><ThankYou /><Footer /></>} />
+                
                 {/* Hidden/Moved Routes - Still accessible by direct URL */}
                 <Route path="/features" element={<><Header /><Features /><Footer /></>} />
                 <Route path="/gallery" element={<><Header /><Gallery /><Footer /></>} />
@@ -118,7 +120,7 @@ function App() {
                 <Route path="/courses" element={<><Header /><Courses /><Footer /></>} />
                 <Route path="/certificates" element={<><Header /><Certificates /><Footer /></>} />
                 <Route path="/progress" element={<><Header /><Progress /><Footer /></>} />
-
+                
                 {/* Admin Routes */}
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/admin" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />

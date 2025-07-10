@@ -16,7 +16,7 @@ if ('serviceWorker' in navigator) {
         console.log('SW registration failed: ', registrationError);
       });
       
-    // Pre-load the new logo image with the correct URL to ensure it's available
+    // Pre-load the correct logo image URL to ensure it's available
     const logoUrl = "https://drive.google.com/uc?export=view&id=1W6X84fwnJCs5_BiuCy0jipwHP_J7n-XR";
     const img = new Image();
     img.onload = () => console.log('Logo image loaded successfully');

@@ -12,14 +12,14 @@ const Enrollment = () => {
   const { darkMode } = useTheme();
   const { addItem } = useData();
   const [formData, setFormData] = useState({
-    childName: '',
-    childAge: '',
-    parentName: '',
+    child_name: '',
+    age: '',
+    guardian_name: '',
     email: '',
     phone: '',
     program: '',
-    startDate: '',
-    additionalInfo: ''
+    start_date: '',
+    additional_info: ''
   });
 
   const programs = [
@@ -32,24 +32,15 @@ const Enrollment = () => {
   ];
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add enrollment to data
+    // Form will be handled by Netlify
+    // We'll still add the data to our local storage for demo purposes
     addItem('students', {
       ...formData,
       status: 'pending',
       enrollmentDate: new Date().toISOString()
     });
     toast.success('Enrollment application submitted successfully!');
-    setFormData({
-      childName: '',
-      childAge: '',
-      parentName: '',
-      email: '',
-      phone: '',
-      program: '',
-      startDate: '',
-      additionalInfo: ''
-    });
+    // Form will redirect to thank-you page via the action attribute
   };
 
   const handleChange = (e) => {
@@ -85,14 +76,14 @@ const Enrollment = () => {
       <section className={`relative py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-muted-purple'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
-            <motion.h1 
+            <motion.h1
               className="font-display font-bold text-4xl lg:text-6xl mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
               Enroll Your Child
             </motion.h1>
-            <motion.p 
+            <motion.p
               className="text-xl lg:text-2xl max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -108,14 +99,14 @@ const Enrollment = () => {
       <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-dusty-blue'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <motion.h2 
+            <motion.h2
               className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-white'}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               Enrollment Process
             </motion.h2>
-            <motion.p 
+            <motion.p
               className={`text-xl ${darkMode ? 'text-gray-400' : 'text-white'} max-w-3xl mx-auto`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -152,14 +143,14 @@ const Enrollment = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <motion.h2 
+            <motion.h2
               className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               Enrollment Application
             </motion.h2>
-            <motion.p 
+            <motion.p
               className={`text-xl ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-3xl mx-auto`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -168,12 +159,18 @@ const Enrollment = () => {
               Please fill out this form to begin the enrollment process
             </motion.p>
           </div>
-          <motion.form 
+          <motion.form
+            name="enrollment"
+            method="POST"
+            data-netlify="true"
+            action="/thank-you"
             onSubmit={handleSubmit}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             className={`p-8 rounded-2xl shadow-xl ${darkMode ? 'bg-gray-800' : 'bg-white'}`}
           >
+            <input type="hidden" name="form-name" value="enrollment" />
+            
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -183,8 +180,8 @@ const Enrollment = () => {
                   <SafeIcon icon={FiUser} className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
                   <input
                     type="text"
-                    name="childName"
-                    value={formData.childName}
+                    name="child_name"
+                    value={formData.child_name}
                     onChange={handleChange}
                     required
                     className={`w-full pl-10 pr-4 py-3 rounded-lg border transition-colors duration-200 ${
@@ -201,8 +198,8 @@ const Enrollment = () => {
                   Child's Age *
                 </label>
                 <select
-                  name="childAge"
-                  value={formData.childAge}
+                  name="age"
+                  value={formData.age}
                   onChange={handleChange}
                   required
                   className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${
@@ -227,8 +224,8 @@ const Enrollment = () => {
                   <SafeIcon icon={FiUser} className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
                   <input
                     type="text"
-                    name="parentName"
-                    value={formData.parentName}
+                    name="guardian_name"
+                    value={formData.guardian_name}
                     onChange={handleChange}
                     required
                     className={`w-full pl-10 pr-4 py-3 rounded-lg border transition-colors duration-200 ${
@@ -299,7 +296,9 @@ const Enrollment = () => {
                 >
                   <option value="">Select a program</option>
                   {programs.map((program) => (
-                    <option key={program} value={program}>{program}</option>
+                    <option key={program} value={program}>
+                      {program}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -311,8 +310,8 @@ const Enrollment = () => {
                   <SafeIcon icon={FiCalendar} className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
                   <input
                     type="date"
-                    name="startDate"
-                    value={formData.startDate}
+                    name="start_date"
+                    value={formData.start_date}
                     onChange={handleChange}
                     required
                     className={`w-full pl-10 pr-4 py-3 rounded-lg border transition-colors duration-200 ${
@@ -328,8 +327,8 @@ const Enrollment = () => {
                   Additional Information
                 </label>
                 <textarea
-                  name="additionalInfo"
-                  value={formData.additionalInfo}
+                  name="additional_info"
+                  value={formData.additional_info}
                   onChange={handleChange}
                   rows="4"
                   className={`w-full px-4 py-3 rounded-lg border transition-colors duration-200 ${
@@ -370,14 +369,14 @@ const Enrollment = () => {
       <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-warm-blush'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <motion.h2 
+            <motion.h2
               className={`font-display font-bold text-3xl lg:text-4xl mb-4 ${darkMode ? 'text-white' : 'text-muted-purple'}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
             >
               Questions About Enrollment?
             </motion.h2>
-            <motion.p 
+            <motion.p
               className={`text-xl ${darkMode ? 'text-gray-400' : 'text-muted-purple'} max-w-3xl mx-auto`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -398,9 +397,7 @@ const Enrollment = () => {
               <h3 className={`font-display font-bold text-xl mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 Call Us
               </h3>
-              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                (555) 123-4567
-              </p>
+              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>(555) 123-4567</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -414,9 +411,7 @@ const Enrollment = () => {
               <h3 className={`font-display font-bold text-xl mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 Email Us
               </h3>
-              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                info@lilhalelearners.com
-              </p>
+              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>info@lilhalelearners.com</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -430,9 +425,7 @@ const Enrollment = () => {
               <h3 className={`font-display font-bold text-xl mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                 Visit Us
               </h3>
-              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                Schedule a tour today
-              </p>
+              <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>Schedule a tour today</p>
             </motion.div>
           </div>
         </div>

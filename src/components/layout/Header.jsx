@@ -45,22 +45,16 @@ const Header = () => {
               className="flex items-center gap-3"
             >
               <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-                {!logoError ? (
-                  <img
-                    src="https://drive.google.com/uc?export=view&id=1W6X84fwnJCs5_BiuCy0jipwHP_J7n-XR"
-                    alt="Lil' Hale Learners Logo"
-                    className="w-16 h-16 object-contain"
-                    onError={(e) => {
-                      console.error('Logo failed to load:', e);
-                      setLogoError(true);
-                    }}
-                  />
-                ) : (
-                  // Fallback to text-based logo only if the image fails
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
-                    <span className="text-muted-purple font-bold text-2xl">L</span>
-                  </div>
-                )}
+                <img
+                  src={logoUrl}
+                  alt="Lil' Hale Learners Logo"
+                  className="w-16 h-16 object-contain max-w-full"
+                  style={{ width: '64px', height: '64px' }}
+                  onError={(e) => {
+                    console.error('Logo failed to load:', e);
+                    setLogoError(true);
+                  }}
+                />
               </div>
               <div className="flex flex-col">
                 <h1 className="font-display font-bold text-xl text-white leading-tight">

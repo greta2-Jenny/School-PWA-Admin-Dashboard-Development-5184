@@ -20,15 +20,9 @@ const Contact = () => {
   });
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // Form will be handled by Netlify
     toast.success('Message sent successfully! We\'ll get back to you soon.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+    // Note: Form will redirect to thank-you page via the action attribute
   };
 
   const handleChange = (e) => {
@@ -68,14 +62,14 @@ const Contact = () => {
       <section className={`relative py-20 ${darkMode ? 'bg-gray-800' : 'solid-bg-muted-purple'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
-            <motion.h1 
+            <motion.h1
               className="font-display font-bold text-4xl lg:text-6xl mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
               Contact Us
             </motion.h1>
-            <motion.p 
+            <motion.p
               className="text-xl lg:text-2xl max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -140,7 +134,16 @@ const Contact = () => {
               <p className={`text-lg mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                 Have questions about our programs, enrollment, or want to schedule a visit? We're here to help! Fill out the form and we'll get back to you as soon as possible.
               </p>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true" 
+                action="/thank-you"
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
