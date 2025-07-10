@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React,{useState} from 'react';
+import {Link} from 'react-router-dom';
+import {motion} from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../../common/SafeIcon';
-import { useTheme } from '../../contexts/ThemeContext';
-import { useData } from '../../contexts/DataContext';
+import {useTheme} from '../../contexts/ThemeContext';
+import {useData} from '../../contexts/DataContext';
 
-const { FiHeart, FiPhone, FiMail, FiMapPin, FiFacebook, FiInstagram, FiTwitter, FiArrowUp } = FiIcons;
+const {FiHeart,FiPhone,FiMail,FiMapPin,FiFacebook,FiInstagram,FiTwitter,FiArrowUp}=FiIcons;
 
-const Footer = () => {
-  const { darkMode } = useTheme();
-  const { data } = useData();
-  const settings = data.settings;
-  const [logoError, setLogoError] = useState(false);
+const Footer=()=> {
+  const {darkMode}=useTheme();
+  const {data}=useData();
+  const settings=data.settings;
+  const [logoError,setLogoError]=useState(false);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollToTop=()=> {
+    window.scrollTo({top: 0,behavior: 'smooth'});
   };
 
-  const quickLinks = [
-    { path: '/about', label: 'About Us' },
-    { path: '/programs', label: 'Programs' },
-    { path: '/enrollment', label: 'Enrollment' },
-    { path: '/gallery', label: 'Gallery' },
-    { path: '/contact', label: 'Contact' }
+  const quickLinks=[
+    {path: '/about',label: 'About Us'},
+    {path: '/programs',label: 'Programs'},
+    {path: '/enrollment',label: 'Enrollment'},
+    {path: '/gallery',label: 'Gallery'},
+    {path: '/contact',label: 'Contact'}
   ];
 
-  const programs = [
+  const programs=[
     'Childcare Program',
     'Toddler Program',
     'Nursery 1',
@@ -35,11 +35,15 @@ const Footer = () => {
     'Tutorial Classes'
   ];
 
-  // Use the correct Google Drive logo URL
-  const logoUrl = "https://drive.google.com/uc?export=view&id=1W6X84fwnJCs5_BiuCy0jipwHP_J7n-XR";
+  // Use the uploaded lamb logo
+  const logoUrl="/lil_hale_lamb_logo.jpg";
 
   return (
-    <footer className={`${darkMode ? 'bg-gray-900' : 'solid-bg-muted-purple'} transition-colors duration-300`}>
+    <footer
+      className={`${
+        darkMode ? 'bg-gray-900' : 'solid-bg-muted-purple'
+      } transition-colors duration-300`}
+    >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* School Info */}
@@ -49,10 +53,10 @@ const Footer = () => {
                 <img
                   src={logoUrl}
                   alt="Lil' Hale Learners Logo"
-                  className="w-16 h-16 object-contain max-w-full"
-                  style={{ width: '64px', height: '64px' }}
-                  onError={(e) => {
-                    console.error('Footer logo failed to load:', e);
+                  className="w-16 h-16 object-contain max-w-full rounded-full"
+                  style={{width: '64px',height: '64px'}}
+                  onError={(e)=> {
+                    console.error('Footer logo failed to load:',e);
                     setLogoError(true);
                   }}
                 />
@@ -71,8 +75,8 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <motion.a
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.95}}
                 href={settings.socialMedia.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -81,8 +85,8 @@ const Footer = () => {
                 <SafeIcon icon={FiFacebook} className="w-5 h-5" />
               </motion.a>
               <motion.a
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.95}}
                 href={settings.socialMedia.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -91,8 +95,8 @@ const Footer = () => {
                 <SafeIcon icon={FiInstagram} className="w-5 h-5" />
               </motion.a>
               <motion.a
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.95}}
                 href={settings.socialMedia.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -109,7 +113,7 @@ const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
+              {quickLinks.map((link)=> (
                 <li key={link.path}>
                   <Link
                     to={link.path}
@@ -128,7 +132,7 @@ const Footer = () => {
               Programs
             </h3>
             <ul className="space-y-3">
-              {programs.map((program) => (
+              {programs.map((program)=> (
                 <li key={program}>
                   <span className="text-base font-body font-medium text-white">
                     {program}
@@ -179,8 +183,8 @@ const Footer = () => {
                 © 2024 {settings.siteName}. All rights reserved.
               </p>
               <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.95}}
                 onClick={scrollToTop}
                 className="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-muted-purple hover:bg-gray-100 transition-all duration-300"
               >
@@ -188,11 +192,10 @@ const Footer = () => {
               </motion.button>
             </div>
           </div>
-
           {/* Christian Message */}
           <div className="mt-8 text-center">
             <p className="text-lg italic font-body font-medium text-white">
-              "Train up a child in the way he should go, and when he is old he will not depart from it." - Proverbs 22:6
+              "Train up a child in the way he should go,and when he is old he will not depart from it." - Proverbs 22:6
             </p>
           </div>
         </div>

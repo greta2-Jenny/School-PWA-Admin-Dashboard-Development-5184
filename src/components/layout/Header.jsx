@@ -1,39 +1,37 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import React,{useState} from 'react';
+import {Link,useLocation} from 'react-router-dom';
+import {motion} from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../../common/SafeIcon';
-import { useTheme } from '../../contexts/ThemeContext';
+import {useTheme} from '../../contexts/ThemeContext';
 
-const { FiMenu, FiX, FiHome, FiInfo, FiBookOpen, FiUserPlus, FiPhone } = FiIcons;
+const {FiMenu,FiX,FiHome,FiInfo,FiBookOpen,FiUserPlus,FiPhone}=FiIcons;
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-  const { darkMode } = useTheme();
-  const [logoError, setLogoError] = useState(false);
+const Header=()=> {
+  const [isMenuOpen,setIsMenuOpen]=useState(false);
+  const location=useLocation();
+  const {darkMode}=useTheme();
+  const [logoError,setLogoError]=useState(false);
 
-  const navItems = [
-    { path: '/', label: 'Home', icon: FiHome },
-    { path: '/about', label: 'About', icon: FiInfo },
-    { path: '/programs', label: 'Programs', icon: FiBookOpen },
-    { path: '/enrollment', label: 'Enrollment', icon: FiUserPlus },
-    { path: '/contact', label: 'Contact', icon: FiPhone }
+  const navItems=[
+    {path: '/',label: 'Home',icon: FiHome},
+    {path: '/about',label: 'About',icon: FiInfo},
+    {path: '/programs',label: 'Programs',icon: FiBookOpen},
+    {path: '/enrollment',label: 'Enrollment',icon: FiUserPlus},
+    {path: '/contact',label: 'Contact',icon: FiPhone}
   ];
 
-  const isActive = (path) => location.pathname === path;
+  const isActive=(path)=> location.pathname===path;
 
-  // Use the correct Google Drive logo URL
-  const logoUrl = "https://drive.google.com/uc?export=view&id=1W6X84fwnJCs5_BiuCy0jipwHP_J7n-XR";
+  // Use the uploaded lamb logo
+  const logoUrl="/lil_hale_lamb_logo.jpg";
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{y: -100}}
+      animate={{y: 0}}
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        darkMode 
-          ? 'bg-gray-900 border-b border-gray-700' 
-          : 'solid-bg-muted-purple border-b border-muted-purple-light'
+        darkMode ? 'bg-gray-900 border-b border-gray-700' : 'solid-bg-muted-purple border-b border-muted-purple-light'
       } shadow-clean`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
@@ -41,17 +39,17 @@ const Header = () => {
           {/* Logo */}
           <Link to="/">
             <motion.div
-              whileHover={{ scale: 1.03 }}
+              whileHover={{scale: 1.03}}
               className="flex items-center gap-3"
             >
               <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
                 <img
                   src={logoUrl}
                   alt="Lil' Hale Learners Logo"
-                  className="w-16 h-16 object-contain max-w-full"
-                  style={{ width: '64px', height: '64px' }}
-                  onError={(e) => {
-                    console.error('Logo failed to load:', e);
+                  className="w-16 h-16 object-contain max-w-full rounded-full"
+                  style={{width: '64px',height: '64px'}}
+                  onError={(e)=> {
+                    console.error('Logo failed to load:',e);
                     setLogoError(true);
                   }}
                 />
@@ -69,7 +67,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-2">
-            {navItems.map((item) => (
+            {navItems.map((item)=> (
               <Link
                 key={item.path}
                 to={item.path}
@@ -89,7 +87,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={()=> setIsMenuOpen(!isMenuOpen)}
             className={`md:hidden p-3 rounded-lg transition-all duration-300 ${
               darkMode
                 ? 'text-gray-300 hover:text-white hover:bg-gray-800'
@@ -103,20 +101,20 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ 
-            opacity: isMenuOpen ? 1 : 0, 
-            height: isMenuOpen ? 'auto' : 0 
+          initial={{opacity: 0,height: 0}}
+          animate={{
+            opacity: isMenuOpen ? 1 : 0,
+            height: isMenuOpen ? 'auto' : 0
           }}
-          transition={{ duration: 0.3 }}
+          transition={{duration: 0.3}}
           className="md:hidden overflow-hidden"
         >
           <nav className="py-4 space-y-2">
-            {navItems.map((item) => (
+            {navItems.map((item)=> (
               <Link
                 key={item.path}
                 to={item.path}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={()=> setIsMenuOpen(false)}
                 className={`block px-6 py-3 rounded-lg text-base font-display font-semibold transition-all duration-300 flex items-center space-x-3 ${
                   isActive(item.path)
                     ? 'bg-soft-rose text-white shadow-clean'
