@@ -1,6 +1,6 @@
-import React,{useState,useEffect} from 'react';
-import {Routes,Route} from 'react-router-dom';
-import {motion,AnimatePresence} from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 
 // Components
@@ -10,6 +10,7 @@ import PWAInstallPrompt from './components/pwa/PWAInstallPrompt';
 import PWAUpdateNotification from './components/pwa/PWAUpdateNotification';
 import DarkModeToggle from './components/ui/DarkModeToggle';
 import FloatingMessenger from './components/ui/FloatingMessenger';
+import ScrollToTop from './utils/ScrollToTop'; // Import the new ScrollToTop component
 
 // Pages
 import Home from './pages/Home';
@@ -37,16 +38,16 @@ import AdminMedia from './pages/admin/AdminMedia';
 import AdminSettings from './pages/admin/AdminSettings';
 
 // Context
-import {ThemeProvider} from './contexts/ThemeContext';
-import {AuthProvider} from './contexts/AuthContext';
-import {DataProvider} from './contexts/DataContext';
+import { ThemeProvider } from './contexts/ThemeContext';
+import { AuthProvider } from './contexts/AuthContext';
+import { DataProvider } from './contexts/DataContext';
 
 // Utils
 import PrivateRoute from './utils/PrivateRoute';
 
 // Preload images to ensure they're available
-const preloadImages=()=> {
-  const imagesToPreload=[
+const preloadImages = () => {
+  const imagesToPreload = [
     'https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752140373730-lil_hale_lamb_logo%20%281%29.jpg', // Updated logo URL
     '/lamb-logo.png',
     '/custom-logo.png',
@@ -57,52 +58,50 @@ const preloadImages=()=> {
     '/favicon.ico',
     '/apple-touch-icon.png'
   ];
-
-  imagesToPreload.forEach(src=> {
-    const img=new Image();
-    img.src=src;
+  imagesToPreload.forEach(src => {
+    const img = new Image();
+    img.src = src;
   });
 };
 
 function App() {
-  const [isOnline,setIsOnline]=useState(navigator.onLine);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
 
-  useEffect(()=> {
+  useEffect(() => {
     // Preload images when component mounts
     preloadImages();
 
-    const handleOnline=()=> setIsOnline(true);
-    const handleOffline=()=> setIsOnline(false);
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
 
-    window.addEventListener('online',handleOnline);
-    window.addEventListener('offline',handleOffline);
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
 
-    return ()=> {
-      window.removeEventListener('online',handleOnline);
-      window.removeEventListener('offline',handleOffline);
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
     };
-  },[]);
+  }, []);
 
   return (
     <ThemeProvider>
       <AuthProvider>
         <DataProvider>
           <div className="app min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+            <ScrollToTop /> {/* Add ScrollToTop component here */}
             <PWAInstallPrompt />
             <PWAUpdateNotification />
             <DarkModeToggle />
             <FloatingMessenger />
-
             {!isOnline && (
               <motion.div
-                initial={{opacity: 0,y: -50}}
-                animate={{opacity: 1,y: 0}}
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
                 className="fixed top-0 left-0 right-0 z-50 bg-yellow-500 text-white py-2 px-4 text-center"
               >
                 You are currently offline. Some features may not be available.
               </motion.div>
             )}
-
             <AnimatePresence mode="wait">
               <Routes>
                 {/* Main Public Routes */}

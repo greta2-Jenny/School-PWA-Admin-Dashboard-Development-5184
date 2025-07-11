@@ -18,11 +18,20 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [mapError, setMapError] = useState(false);
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     // Form will be handled by Netlify
     toast.success('Message sent successfully! We\'ll get back to you soon.');
-    // Note: Form will redirect to thank-you page via the action attribute
+    // Reset form
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: ''
+    });
   };
 
   const handleChange = (e) => {
@@ -33,19 +42,19 @@ const Contact = () => {
     {
       icon: FiPhone,
       title: 'Phone',
-      details: [data.settings.phone, 'Call us during school hours'],
+      details: ['(+63) 945-123-4567', 'Call us during school hours'],
       color: 'bg-dusty-blue'
     },
     {
       icon: FiMail,
       title: 'Email',
-      details: [data.settings.contactEmail, 'Send us an email anytime'],
+      details: ['info@lilhalelearners.com', 'Send us an email anytime'],
       color: 'bg-soft-rose'
     },
     {
       icon: FiMapPin,
       title: 'Address',
-      details: [data.settings.address, 'Visit us at our location'],
+      details: ['Calmar Subdivision, Lucban, Quezon 4328', 'Visit us at our location'],
       color: 'bg-muted-purple'
     },
     {
@@ -91,9 +100,7 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${
-                  darkMode ? 'bg-gray-700' : 'bg-white'
-                }`}
+                className={`p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 ${darkMode ? 'bg-gray-700' : 'bg-white'}`}
               >
                 <div className={`w-16 h-16 rounded-full ${info.color} flex items-center justify-center mb-4`}>
                   <SafeIcon icon={info.icon} className="w-8 h-8 text-white" />
@@ -105,9 +112,7 @@ const Contact = () => {
                   {info.details.map((detail, i) => (
                     <p
                       key={i}
-                      className={`text-sm ${i === 0 ? 'font-medium' : ''} ${
-                        darkMode ? 'text-gray-300' : 'text-gray-600'
-                      }`}
+                      className={`text-sm ${i === 0 ? 'font-medium' : ''} ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}
                     >
                       {detail}
                     </p>
@@ -119,7 +124,7 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Form */}
+      {/* Contact Form and Map */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -134,16 +139,16 @@ const Contact = () => {
               <p className={`text-lg mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                 Have questions about our programs, enrollment, or want to schedule a visit? We're here to help! Fill out the form and we'll get back to you as soon as possible.
               </p>
-              <form 
-                name="contact" 
-                method="POST" 
-                data-netlify="true" 
+
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
                 action="/thank-you"
-                onSubmit={handleSubmit} 
+                onSubmit={handleSubmit}
                 className="space-y-6"
               >
                 <input type="hidden" name="form-name" value="contact" />
-                
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -182,6 +187,7 @@ const Contact = () => {
                     />
                   </div>
                 </div>
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
@@ -224,6 +230,7 @@ const Contact = () => {
                     </select>
                   </div>
                 </div>
+
                 <div>
                   <label className={`block text-sm font-medium mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
                     Message *
@@ -242,6 +249,7 @@ const Contact = () => {
                     placeholder="Tell us how we can help you..."
                   />
                 </div>
+
                 <motion.button
                   type="submit"
                   whileHover={{ scale: 1.05 }}
@@ -253,6 +261,7 @@ const Contact = () => {
                 </motion.button>
               </form>
             </motion.div>
+
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -305,15 +314,46 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              {/* Map placeholder */}
-              <div className="mt-8 h-64 bg-gray-200 rounded-2xl overflow-hidden">
-                <div className="w-full h-full solid-bg-warm-blush flex items-center justify-center">
-                  <div className="text-center">
-                    <SafeIcon icon={FiMapPin} className="w-12 h-12 text-muted-purple mx-auto mb-2" />
-                    <p className="text-muted-purple font-medium">Interactive Map</p>
-                    <p className="text-sm text-muted-purple">123 Faith Street, Christian Valley</p>
+
+              {/* Static Map */}
+              <div className="mt-8 rounded-2xl overflow-hidden shadow-xl">
+                <div className="h-96 w-full">
+                  <div className={`w-full h-full ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
+                    <img 
+                      src="https://maps.googleapis.com/maps/api/staticmap?center=Calmar+Subdivision,+Lucban,+Quezon+4328&zoom=15&size=600x400&key=AIzaSyBnKWd2V4Q-9Qx-HWZUkxmxQVrKjsQzGPk" 
+                      alt="Map showing Calmar Subdivision, Lucban, Quezon" 
+                      className="w-full h-full object-cover rounded-2xl"
+                      onError={() => setMapError(true)}
+                    />
+                    
+                    {mapError && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-center p-6">
+                          <SafeIcon icon={FiMapPin} className={`w-12 h-12 mx-auto mb-4 ${darkMode ? 'text-gray-600' : 'text-gray-400'}`} />
+                          <h3 className={`font-display font-bold text-lg mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                            Map Unavailable
+                          </h3>
+                          <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                            We're located at Calmar Subdivision, Lucban, Quezon 4328
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
+              </div>
+              
+              {/* Direct link to Google Maps */}
+              <div className="mt-4 text-center">
+                <a 
+                  href="https://maps.google.com/maps?q=Calmar+Subdivision,+Lucban,+Quezon+4328" 
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className={`inline-flex items-center px-4 py-2 rounded-lg ${darkMode ? 'bg-gray-700 text-blue-400' : 'bg-gray-100 text-blue-600'} hover:opacity-90 transition-opacity`}
+                >
+                  <SafeIcon icon={FiMapPin} className="mr-2 w-5 h-5" />
+                  View on Google Maps
+                </a>
               </div>
             </motion.div>
           </div>

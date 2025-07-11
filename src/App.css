@@ -2,22 +2,22 @@
 
 /* Custom cursor implementation */
 body {
-  cursor: url('https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752140373730-lil_hale_lamb_logo%20%281%29.jpg') 16 16,auto;
-  font-family: 'Work Sans',sans-serif;
+  cursor: url('https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752140373730-lil_hale_lamb_logo%20%281%29.jpg') 16 16, auto;
+  font-family: 'Work Sans', sans-serif;
   background-color: #FFFFFF;
 }
 
 .app {
-  font-family: 'Work Sans',sans-serif;
+  font-family: 'Work Sans', sans-serif;
   background-color: #FFFFFF;
 }
 
 .font-display {
-  font-family: 'Comfortaa',cursive;
+  font-family: 'Comfortaa', cursive;
 }
 
 .font-body {
-  font-family: 'Work Sans',sans-serif;
+  font-family: 'Work Sans', sans-serif;
 }
 
 /* Custom scrollbar with calm colors */
@@ -53,24 +53,24 @@ body {
 
 /* Smooth animations */
 * {
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Custom animations */
 @keyframes wiggle {
-  0%,100% {transform: rotate(-2deg);}
-  50% {transform: rotate(2deg);}
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
 }
 
 @keyframes float {
-  0%,100% {transform: translateY(0px);}
-  50% {transform: translateY(-8px);}
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes pop {
-  0% {transform: scale(1);}
-  50% {transform: scale(1.03);}
-  100% {transform: scale(1);}
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
 }
 
 .animate-wiggle {
@@ -127,31 +127,31 @@ body {
 .btn-primary {
   background-color: #C17C94;
   color: white;
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 1rem;
   font-weight: 600;
-  font-family: 'Comfortaa',cursive;
+  font-family: 'Comfortaa', cursive;
 }
 
 .btn-primary:hover {
   background-color: #D493A9;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(193,124,148,0.3);
+  box-shadow: 0 8px 20px rgba(193, 124, 148, 0.3);
 }
 
 .btn-secondary {
   background-color: #7295A5;
   color: white;
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 1rem;
   font-weight: 600;
-  font-family: 'Comfortaa',cursive;
+  font-family: 'Comfortaa', cursive;
 }
 
 .btn-secondary:hover {
   background-color: #8BAAB8;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(114,149,165,0.3);
+  box-shadow: 0 8px 20px rgba(114, 149, 165, 0.3);
 }
 
 /* Loading spinner */
@@ -165,48 +165,48 @@ body {
 }
 
 @keyframes spin {
-  0% {transform: rotate(0deg);}
-  100% {transform: rotate(360deg);}
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Card hover effects */
 .card-hover {
-  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1),box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 /* Form styles */
 .form-input {
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid #7295A5;
   border-radius: 0.75rem;
   background: #FFFFFF;
   color: #333333;
-  font-family: 'Work Sans',sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-weight: 500;
 }
 
 .form-input:focus {
   border-color: #C17C94;
-  box-shadow: 0 0 0 3px rgba(193,124,148,0.1);
+  box-shadow: 0 0 0 3px rgba(193, 124, 148, 0.1);
   background: #FFFFFF;
 }
 
 /* Clean shadows */
 .shadow-clean {
-  box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
 }
 
 .shadow-clean-lg {
-  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .shadow-clean-xl {
-  box-shadow: 0 20px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* Text colors */
@@ -250,7 +250,7 @@ body {
 /* Gallery styles */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
@@ -259,17 +259,17 @@ body {
   overflow: hidden;
   border-radius: 1rem;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-item:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .gallery-item img {
-  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-item:hover img {
@@ -281,13 +281,13 @@ body {
   background: #FFFFFF;
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .course-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* Feature card styles */
@@ -295,13 +295,13 @@ body {
   background: #FFFFFF;
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .feature-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* Testimonial card styles */
@@ -309,13 +309,13 @@ body {
   background: #FFFFFF;
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .testimonial-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* Stats card styles */
@@ -361,8 +361,7 @@ body {
 }
 
 /* Button focus states */
-button:focus-visible,
-a:focus-visible {
+button:focus-visible, a:focus-visible {
   outline: 3px solid #C17C94;
   outline-offset: 2px;
 }
@@ -370,7 +369,7 @@ a:focus-visible {
 /* Interactive elements */
 .interactive-element {
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .interactive-element:hover {
@@ -380,7 +379,7 @@ a:focus-visible {
 /* Clean dividers */
 .divider {
   height: 1px;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   margin: 2rem 0;
 }
 
@@ -390,7 +389,7 @@ a:focus-visible {
   border-radius: 9999px;
   font-size: 0.875rem;
   font-weight: 600;
-  font-family: 'Comfortaa',cursive;
+  font-family: 'Comfortaa', cursive;
 }
 
 .badge-muted-purple {
@@ -419,12 +418,12 @@ a:focus-visible {
   align-items: center;
   justify-content: center;
   border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
 }
 
 /* Clean text shadows */
 .text-shadow-clean {
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Remove all gradient and overlay effects */
@@ -460,10 +459,7 @@ a:focus-visible {
 }
 
 /* Remove any pattern backgrounds */
-.star-pattern,
-.cross-pattern,
-.bg-pattern-dots,
-.bg-pattern-stripes {
+.star-pattern, .cross-pattern, .bg-pattern-dots, .bg-pattern-stripes {
   background-image: none !important;
 }
 
@@ -482,4 +478,27 @@ a:focus-visible {
 
 .dark .solid-bg-warm-blush {
   background: #F9BE97 !important;
+}
+
+/* Static map styles */
+.static-map-fallback {
+  width: 100%;
+  height: 100%;
+  background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=Calmar+Subdivision,+Lucban,+Quezon+4328&zoom=15&size=600x300&key=AIzaSyBnKWd2V4Q-9Qx-HWZUkxmxQVrKjsQzGPk');
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+}
+
+/* Map container specific styles */
+#map-container {
+  min-height: 384px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  #map-container {
+    min-height: 300px;
+  }
 }
