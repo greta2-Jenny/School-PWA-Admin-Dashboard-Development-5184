@@ -16,8 +16,8 @@ if ('serviceWorker' in navigator) {
         console.log('SW registration failed: ',registrationError);
       });
 
-    // Pre-load the uploaded lamb logo to ensure it's available
-    const logoUrl="/lil_hale_lamb_logo.jpg";
+    // Pre-load the correct uploaded lamb logo to ensure it's available
+    const logoUrl="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752140373730-lil_hale_lamb_logo%20%281%29.jpg";
     const img=new Image();
     img.onload=()=> console.log('Logo image loaded successfully');
     img.onerror=()=> console.error('Failed to load logo image');

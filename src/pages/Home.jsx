@@ -17,35 +17,90 @@ const Home=()=> {
     {icon: FiUsers,label: 'Happy Families',value: '500+'},
     {icon: FiBookOpen,label: 'Programs',value: '6'},
     {icon: FiStar,label: 'Years of Excellence',value: '26'},
-    {icon: FiHeart,label: 'Dedicated Teachers',value: '20+'}
+    {icon: FiHeart,label: 'Dedicated Teachers',value: '20+'} 
   ];
 
   const testimonials=[
-    {name: 'Sarah Johnson',role: 'Parent',content: 'My daughter Emma loves going to school every day. The teachers are so caring and the Christian values they teach are wonderful.',image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face'},
-    {name: 'Michael Chen',role: 'Parent',content: 'The small class sizes and individual attention have helped my son develop confidence and social skills. Highly recommend!',image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face'},
-    {name: 'Lisa Rodriguez',role: 'Parent',content: 'Lil\' Hale Learners has been a blessing to our family. The curriculum is excellent and the environment is so nurturing.',image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop&crop=face'}
+    {
+      name: 'Sarah Johnson',
+      role: 'Parent',
+      content: 'My daughter Emma loves going to school every day. The teachers are so caring and the Christian values they teach are wonderful.',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face'
+    },
+    {
+      name: 'Michael Chen',
+      role: 'Parent',
+      content: 'The small class sizes and individual attention have helped my son develop confidence and social skills. Highly recommend!',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face'
+    },
+    {
+      name: 'Lisa Rodriguez',
+      role: 'Parent',
+      content: 'Lil\' Hale Learners has been a blessing to our family. The curriculum is excellent and the environment is so nurturing.',
+      image: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop&crop=face'
+    }
   ];
 
-  // Updated gallery images with working URLs
+  // Updated gallery images with the new photos
   const galleryImages=[
-    {src: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=300&fit=crop',title: 'Classroom Activities'},
+    {src: 'https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752200981435-blob',title: 'Classroom Activities'},
     {src: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=300&fit=crop',title: 'Story Time'},
-    {src: 'https://images.unsplash.com/photo-1597248881519-db089d3744a5?w=400&h=300&fit=crop',title: 'Outdoor Play'},
-    {src: 'https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?w=400&h=300&fit=crop',title: 'Art Projects'},
+    {src: 'https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752201364200-blob',title: 'Outdoor Play'}, // Updated Outdoor Play (shoes)
+    {src: 'https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752201385820-blob',title: 'Art Projects'}, // Updated Art Projects (people with laptop)
     {src: 'https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?w=400&h=300&fit=crop',title: 'Learning Together'},
-    {src: 'https://images.unsplash.com/photo-1551966775-a4ddc8df052b?w=400&h=300&fit=crop',title: 'Reading Corner'}
+    {src: 'https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752201538186-blob',title: 'Reading Corner'} // Updated Reading Corner (kid with balloons)
   ];
 
   // Special features for "What Makes Us Special" section
   const specialFeatures=[
-    {icon: FiBookOpen,title: 'Bible-based curriculum',description: 'Every lesson is grounded in Christian values and biblical teachings,helping children develop a strong moral foundation.',iconColor: 'bg-white'},
-    {icon: FiHeart,title: 'Wholistic Approach',description: 'We nurture the whole child - spiritually,emotionally,socially,and academically for complete development.',iconColor: 'bg-white'},
-    {icon: FiStar,title: 'Adventurer Club Program',description: 'Special extracurricular activities that encourage exploration,creativity,and character building.',iconColor: 'bg-white'},
-    {icon: FiHome,title: 'Complete Facilities',description: 'Modern,well-equipped classrooms and play areas designed specifically for early childhood learning.',iconColor: 'bg-white'},
-    {icon: FiUsers,title: 'Small teacher to pupil ratio (2 teachers per class)',description: 'Individual attention ensures every child receives the support they need to thrive.',iconColor: 'bg-white'},
-    {icon: FiShield,title: 'Comfortable air-conditioned rooms',description: 'Climate-controlled environment ensures children are comfortable and focused on learning.',iconColor: 'bg-white'},
-    {icon: FiShield,title: 'Fun and safe environment (gated community)',description: 'Secure location in a gated community provides peace of mind for parents.',iconColor: 'bg-white'},
-    {icon: FiClock,title: '26 years of quality operation',description: 'Decades of experience in early childhood education with a proven track record of success.',iconColor: 'bg-white'}
+    {
+      icon: FiBookOpen,
+      title: 'Bible-based curriculum',
+      description: 'Every lesson is grounded in Christian values and biblical teachings,helping children develop a strong moral foundation.',
+      iconColor: 'bg-white'
+    },
+    {
+      icon: FiHeart,
+      title: 'Wholistic Approach',
+      description: 'We nurture the whole child - spiritually,emotionally,socially,and academically for complete development.',
+      iconColor: 'bg-white'
+    },
+    {
+      icon: FiStar,
+      title: 'Adventurer Club Program',
+      description: 'Special extracurricular activities that encourage exploration,creativity,and character building.',
+      iconColor: 'bg-white'
+    },
+    {
+      icon: FiHome,
+      title: 'Complete Facilities',
+      description: 'Modern,well-equipped classrooms and play areas designed specifically for early childhood learning.',
+      iconColor: 'bg-white'
+    },
+    {
+      icon: FiUsers,
+      title: 'Small teacher to pupil ratio (2 teachers per class)',
+      description: 'Individual attention ensures every child receives the support they need to thrive.',
+      iconColor: 'bg-white'
+    },
+    {
+      icon: FiShield,
+      title: 'Comfortable air-conditioned rooms',
+      description: 'Climate-controlled environment ensures children are comfortable and focused on learning.',
+      iconColor: 'bg-white'
+    },
+    {
+      icon: FiShield,
+      title: 'Fun and safe environment (gated community)',
+      description: 'Secure location in a gated community provides peace of mind for parents.',
+      iconColor: 'bg-white'
+    },
+    {
+      icon: FiClock,
+      title: '26 years of quality operation',
+      description: 'Decades of experience in early childhood education with a proven track record of success.',
+      iconColor: 'bg-white'
+    }
   ];
 
   return (
@@ -69,7 +124,9 @@ const Home=()=> {
                 Nurturing Young Minds Through Faith
               </motion.h1>
               <motion.p
-                className={`text-xl lg:text-2xl mb-12 font-body font-medium leading-relaxed ${darkMode ? 'text-gray-300' : 'text-muted-purple'}`}
+                className={`text-xl lg:text-2xl mb-12 font-body font-medium leading-relaxed ${
+                  darkMode ? 'text-gray-300' : 'text-muted-purple'
+                }`}
                 initial={{opacity: 0,y: 20}}
                 animate={{opacity: 1,y: 0}}
                 transition={{delay: 0.4}}
@@ -106,12 +163,12 @@ const Home=()=> {
             >
               <div className="relative z-10">
                 <img
-                  src="https://images.unsplash.com/photo-1544475762-f8baaff7b575?w=600&h=400&fit=crop"
-                  alt="Happy children learning"
+                  src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752200684892-Screenshot%202025-07-10%20131640.png"
+                  alt="Happy children learning with colorful blocks"
                   className="rounded-2xl shadow-clean-xl w-full h-96 object-cover"
-                  onError={(e) => {
+                  onError={(e)=> {
                     console.error('Hero image failed to load');
-                    e.target.src = 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&h=400&fit=crop';
+                    e.target.src='https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&h=400&fit=crop';
                   }}
                 />
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-muted-purple rounded-2xl shadow-clean flex items-center justify-center">
@@ -187,9 +244,9 @@ const Home=()=> {
                     src={course.image}
                     alt={course.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    onError={(e) => {
-                      console.error('Course image failed to load:', course.image);
-                      e.target.src = 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&h=400&fit=crop';
+                    onError={(e)=> {
+                      console.error('Course image failed to load:',course.image);
+                      e.target.src='https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&h=400&fit=crop';
                     }}
                   />
                 </div>
@@ -289,14 +346,18 @@ const Home=()=> {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="text-center mb-16">
             <motion.h2
-              className={`font-display font-bold text-4xl lg:text-5xl mb-6 ${darkMode ? 'text-white' : 'text-muted-purple'}`}
+              className={`font-display font-bold text-4xl lg:text-5xl mb-6 ${
+                darkMode ? 'text-white' : 'text-muted-purple'
+              }`}
               initial={{opacity: 0,y: 20}}
               whileInView={{opacity: 1,y: 0}}
             >
               Life at Our School
             </motion.h2>
             <motion.p
-              className={`text-xl font-body font-medium ${darkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}
+              className={`text-xl font-body font-medium ${
+                darkMode ? 'text-gray-300' : 'text-gray-600'
+              } max-w-4xl mx-auto leading-relaxed`}
               initial={{opacity: 0,y: 20}}
               whileInView={{opacity: 1,y: 0}}
               transition={{delay: 0.2}}
@@ -318,9 +379,9 @@ const Home=()=> {
                     src={image.src}
                     alt={image.title}
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      console.error('Gallery image failed to load:', image.src);
-                      e.target.src = 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=300&fit=crop';
+                    onError={(e)=> {
+                      console.error('Gallery image failed to load:',image.src);
+                      e.target.src='https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=300&fit=crop';
                     }}
                   />
                 </div>
@@ -344,19 +405,23 @@ const Home=()=> {
         </div>
       </section>
 
-      {/* Enrollment Section - Solid Warm Blush */}
+      {/* Testimonials Section - Solid Warm Blush */}
       <section className={`section-spacing-lg ${darkMode ? 'bg-gray-800' : 'solid-bg-warm-blush'}`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="text-center mb-16">
             <motion.h2
-              className={`font-display font-bold text-4xl lg:text-5xl mb-6 ${darkMode ? 'text-white' : 'text-muted-purple'}`}
+              className={`font-display font-bold text-4xl lg:text-5xl mb-6 ${
+                darkMode ? 'text-white' : 'text-muted-purple'
+              }`}
               initial={{opacity: 0,y: 20}}
               whileInView={{opacity: 1,y: 0}}
             >
               What Parents Say
             </motion.h2>
             <motion.p
-              className={`text-xl font-body font-medium ${darkMode ? 'text-gray-300' : 'text-muted-purple'} max-w-4xl mx-auto leading-relaxed`}
+              className={`text-xl font-body font-medium ${
+                darkMode ? 'text-gray-300' : 'text-muted-purple'
+              } max-w-4xl mx-auto leading-relaxed`}
               initial={{opacity: 0,y: 20}}
               whileInView={{opacity: 1,y: 0}}
               transition={{delay: 0.2}}
@@ -364,44 +429,68 @@ const Home=()=> {
               Hear from the families who have trusted us with their children's education
             </motion.p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial,index)=> (
-              <motion.div
-                key={index}
-                initial={{opacity: 0,y: 20}}
-                whileInView={{opacity: 1,y: 0}}
-                transition={{delay: index * 0.1}}
-                className="bg-white rounded-2xl p-6 shadow-clean hover:shadow-clean-lg transition-all duration-300 hover:scale-105"
-              >
-                <div className="flex items-center mb-6">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-14 h-14 rounded-xl object-cover shadow-clean"
-                    onError={(e) => {
-                      console.error('Testimonial image failed to load:', testimonial.image);
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                  <div className="ml-4">
-                    <h4 className="font-display font-bold text-lg text-muted-purple">
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-sm font-body font-medium text-gray-600">
-                      {testimonial.role}
-                    </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{opacity: 0,x: -50}}
+              whileInView={{opacity: 1,x: 0}}
+              transition={{duration: 0.8}}
+              className="relative"
+            >
+              <img
+                src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752200970714-blob"
+                alt="Parents and teachers discussing child's progress"
+                className="rounded-2xl shadow-xl w-full h-96 object-cover"
+                onError={(e)=> {
+                  console.error('Testimonial image failed to load');
+                  e.target.src='https://images.unsplash.com/photo-1587095951604-b9d924a3fda0?w=600&h=500&fit=crop';
+                }}
+              />
+              <div className="absolute bottom-6 left-6 right-6 text-white">
+                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                  <h3 className="font-display font-bold text-xl mb-2">Parent Partnership</h3>
+                  <p className="text-sm">Working together for your child's success</p>
+                </div>
+              </div>
+            </motion.div>
+            <div className="grid gap-8">
+              {testimonials.map((testimonial,index)=> (
+                <motion.div
+                  key={index}
+                  initial={{opacity: 0,y: 20}}
+                  whileInView={{opacity: 1,y: 0}}
+                  transition={{delay: index * 0.1}}
+                  className="bg-white rounded-2xl p-6 shadow-clean hover:shadow-clean-lg transition-all duration-300 hover:scale-105"
+                >
+                  <div className="flex items-center mb-6">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-14 h-14 rounded-xl object-cover shadow-clean"
+                      onError={(e)=> {
+                        console.error('Testimonial image failed to load:',testimonial.image);
+                        e.target.style.display='none';
+                      }}
+                    />
+                    <div className="ml-4">
+                      <h4 className="font-display font-bold text-lg text-muted-purple">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-sm font-body font-medium text-gray-600">
+                        {testimonial.role}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <p className="text-base font-body font-medium leading-relaxed mb-6 text-gray-600">
-                  "{testimonial.content}"
-                </p>
-                <div className="flex text-soft-rose space-x-1">
-                  {[...Array(5)].map((_,i)=> (
-                    <SafeIcon key={i} icon={FiStar} className="w-5 h-5" />
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                  <p className="text-base font-body font-medium leading-relaxed mb-6 text-gray-600">
+                    "{testimonial.content}"
+                  </p>
+                  <div className="flex text-soft-rose space-x-1">
+                    {[...Array(5)].map((_,i)=> (
+                      <SafeIcon key={i} icon={FiStar} className="w-5 h-5" />
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
           <div className="text-center mt-12">
             <motion.div

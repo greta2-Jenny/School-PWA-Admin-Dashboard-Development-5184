@@ -23,8 +23,8 @@ const Header=()=> {
 
   const isActive=(path)=> location.pathname===path;
 
-  // Use the uploaded lamb logo
-  const logoUrl="/lil_hale_lamb_logo.jpg";
+  // Use the correct uploaded lamb logo with updated URL
+  const logoUrl="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752140373730-lil_hale_lamb_logo%20%281%29.jpg";
 
   return (
     <motion.header

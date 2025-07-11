@@ -10,45 +10,39 @@
   "scope": "/",
   "icons": [
     {
-      "src": "/lil-hale-lamb-logo.jpg",
+      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752140373730-lil_hale_lamb_logo%20%281%29.jpg",
       "sizes": "64x64",
       "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "/uploaded-logo.png",
-      "sizes": "64x64",
-      "type": "image/png",
+      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752140373730-lil_hale_lamb_logo%20%281%29.jpg",
+      "sizes": "180x180",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "/lamb-logo.png",
-      "sizes": "64x64",
-      "type": "image/png",
+      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752140373730-lil_hale_lamb_logo%20%281%29.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "/custom-logo.png",
-      "sizes": "64x64",
-      "type": "image/png",
+      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752140373730-lil_hale_lamb_logo%20%281%29.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "/lamb-logo.svg",
-      "sizes": "64x64",
-      "type": "image/svg+xml",
-      "purpose": "any"
+      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752140373730-lil_hale_lamb_logo%20%281%29.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "maskable"
     },
     {
       "src": "/favicon.svg",
       "sizes": "32x32",
       "type": "image/svg+xml",
-      "purpose": "any"
-    },
-    {
-      "src": "/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png",
       "purpose": "any"
     },
     {
@@ -62,12 +56,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "/pwa-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
     }
   ],
   "categories": [
