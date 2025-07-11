@@ -1,50 +1,36 @@
+```json
 {
-  "name": "Lil' Hale Learners",
-  "short_name": "Lil Hale",
-  "description": "Christian toddler school dedicated to nurturing young minds through faith, play, and early academic exploration",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#635B86",
-  "theme_color": "#635B86",
-  "orientation": "portrait-primary",
-  "scope": "/",
   "icons": [
     {
-      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752203283909-lil_hale_lamb_logo%20%281%29.jpg",
+      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752209328393-blob",
       "sizes": "64x64",
       "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752203283909-lil_hale_lamb_logo%20%281%29.jpg",
+      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752209328393-blob",
       "sizes": "180x180",
       "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752203283909-lil_hale_lamb_logo%20%281%29.jpg",
+      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752209328393-blob",
       "sizes": "192x192",
       "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752203283909-lil_hale_lamb_logo%20%281%29.jpg",
+      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752209328393-blob",
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752203283909-lil_hale_lamb_logo%20%281%29.jpg",
+      "src": "https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752209328393-blob",
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "maskable"
     }
-  ],
-  "categories": [
-    "education",
-    "kids",
-    "christian"
-  ],
-  "lang": "en-US",
-  "dir": "ltr"
+  ]
 }
+```
