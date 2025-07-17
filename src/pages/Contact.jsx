@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import * as FiIcons from 'react-icons/fi';
 import SafeIcon from '../common/SafeIcon';
@@ -20,9 +20,6 @@ const Contact = () => {
   });
   const [mapError, setMapError] = useState(false);
 
-  // Using a static map URL for reliability
-  const staticMapUrl = "https://maps.googleapis.com/maps/api/staticmap?center=Calmar+Subdivision,+Lucban,+Quezon+4328&zoom=15&size=800x400&markers=color:red%7CCalmar+Subdivision,+Lucban,+Quezon+4328&key=AIzaSyBnKWd2V4Q-9Qx-HWZUkxmxQVrKjsQzGPk";
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // Form will be handled by Netlify
@@ -40,17 +37,6 @@ const Contact = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  // Preload the map image to improve reliability
-  useEffect(() => {
-    const img = new Image();
-    img.onload = () => console.log('Map image loaded successfully');
-    img.onerror = () => {
-      console.error('Map image failed to load');
-      setMapError(true);
-    };
-    img.src = staticMapUrl;
-  }, [staticMapUrl]);
 
   const contactInfo = [
     {
@@ -329,33 +315,32 @@ const Contact = () => {
                 </div>
               </div>
 
-              {/* Static Map Implementation */}
+              {/* Static Map */}
               <div className="mt-8 rounded-2xl overflow-hidden shadow-xl">
-                {mapError ? (
-                  // Fallback content if map fails to load
-                  <div className={`h-96 w-full flex items-center justify-center ${darkMode ? 'bg-gray-700' : 'bg-gray-100'} rounded-2xl`}>
-                    <div className="text-center p-6">
-                      <SafeIcon icon={FiMapPin} className={`w-12 h-12 mx-auto mb-4 ${darkMode ? 'text-gray-500' : 'text-gray-400'}`} />
-                      <h3 className={`font-display font-bold text-lg mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-                        Map Unavailable
-                      </h3>
-                      <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'} max-w-xs mx-auto`}>
-                        We're located at Calmar Subdivision, Lucban, Quezon 4328. Please use the Google Maps link below for directions.
-                      </p>
-                    </div>
-                  </div>
-                ) : (
-                  // Static map image (most reliable approach)
-                  <div className="static-map-container h-96 w-full relative">
+                <div className="h-96 w-full">
+                  <div className={`w-full h-full ${darkMode ? 'bg-gray-700' : 'bg-gray-100'}`}>
                     <img 
-                      src={staticMapUrl}
+                      src="https://maps.googleapis.com/maps/api/staticmap?center=Calmar+Subdivision,+Lucban,+Quezon+4328&zoom=15&size=600x400&key=AIzaSyBnKWd2V4Q-9Qx-HWZUkxmxQVrKjsQzGPk" 
                       alt="Map showing Calmar Subdivision, Lucban, Quezon" 
                       className="w-full h-full object-cover rounded-2xl"
                       onError={() => setMapError(true)}
                     />
-                    <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-soft-rose"></div>
+                    
+                    {mapError && (
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-center p-6">
+                          <SafeIcon icon={FiMapPin} className={`w-12 h-12 mx-auto mb-4 ${darkMode ? 'text-gray-600' : 'text-gray-400'}`} />
+                          <h3 className={`font-display font-bold text-lg mb-2 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                            Map Unavailable
+                          </h3>
+                          <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                            We're located at Calmar Subdivision, Lucban, Quezon 4328
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                )}
+                </div>
               </div>
               
               {/* Direct link to Google Maps */}
@@ -364,9 +349,7 @@ const Contact = () => {
                   href="https://maps.google.com/maps?q=Calmar+Subdivision,+Lucban,+Quezon+4328" 
                   target="_blank"
                   rel="noopener noreferrer" 
-                  className={`inline-flex items-center px-6 py-3 rounded-lg ${
-                    darkMode ? 'bg-soft-rose text-white' : 'bg-soft-rose text-white'
-                  } hover:opacity-90 transition-opacity shadow-lg`}
+                  className={`inline-flex items-center px-4 py-2 rounded-lg ${darkMode ? 'bg-gray-700 text-blue-400' : 'bg-gray-100 text-blue-600'} hover:opacity-90 transition-opacity`}
                 >
                   <SafeIcon icon={FiMapPin} className="mr-2 w-5 h-5" />
                   View on Google Maps

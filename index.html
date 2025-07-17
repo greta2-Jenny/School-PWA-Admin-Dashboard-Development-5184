@@ -1,8 +1,123 @@
-```html
-<!-- Update the favicon and icon references -->
-<link rel="icon" href="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752209328393-blob" />
-<link rel="icon" type="image/jpeg" sizes="32x32" href="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752209328393-blob" />
-<link rel="icon" type="image/jpeg" sizes="16x16" href="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752209328393-blob" />
-<link rel="apple-touch-icon" href="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752209328393-blob" />
-<link rel="apple-touch-icon" sizes="180x180" href="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752209328393-blob" />
-```
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+    <meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="description" content="Lil' Hale Learners - Christian toddler school dedicated to nurturing young minds through faith, play, and early academic exploration" />
+    <meta name="theme-color" content="#635B86" />
+
+    <!-- Updated Favicons -->
+    <link rel="icon" href="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752203283909-lil_hale_lamb_logo%20%281%29.jpg" />
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752203283909-lil_hale_lamb_logo%20%281%29.jpg" />
+    <link rel="icon" type="image/jpeg" sizes="16x16" href="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752203283909-lil_hale_lamb_logo%20%281%29.jpg" />
+    <link rel="apple-touch-icon" href="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752203283909-lil_hale_lamb_logo%20%281%29.jpg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752203283909-lil_hale_lamb_logo%20%281%29.jpg" />
+    
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload Google Maps API -->
+    <link rel="preconnect" href="https://maps.googleapis.com">
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">
+    
+    <title>Lil' Hale Learners - Christian Toddler School</title>
+    <style>
+      body {
+        font-family: 'Work Sans', sans-serif;
+        background-color: #635B86;
+        cursor: url('https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752203283909-lil_hale_lamb_logo%20%281%29.jpg') 16 16, auto;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Comfortaa', cursive;
+      }
+      .loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+      }
+      .loader-content {
+        text-align: center;
+      }
+      .loader-text {
+        margin-top: 16px;
+        color: white;
+        font-family: 'Comfortaa', cursive;
+        font-weight: 700;
+      }
+      .loader-icon {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+        max-width: 100%;
+        background-color: white;
+        border-radius: 50%;
+        padding: 10px;
+        animation: pulse 1.5s infinite;
+      }
+      @keyframes pulse {
+        0% { transform: scale(0.95); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(0.95); }
+      }
+      
+      /* Fallback map style for no-js environments */
+      .static-map-fallback {
+        width: 100%;
+        height: 300px;
+        background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=Calmar+Subdivision,+Lucban,+Quezon+4328&zoom=15&size=600x300&key=AIzaSyBnKWd2V4Q-9Qx-HWZUkxmxQVrKjsQzGPk');
+        background-size: cover;
+        background-position: center;
+        border-radius: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="loader">
+        <div class="loader-content">
+          <div class="loader-icon-container">
+            <img 
+              src="https://quest-media-storage-bucket.s3.us-east-2.amazonaws.com/1752203283909-lil_hale_lamb_logo%20%281%29.jpg" 
+              alt="Lil' Hale Learners Logo" 
+              class="loader-icon"
+            />
+          </div>
+          <div class="loader-text">Loading...</div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+    
+    <!-- Fallback static map for no-JS environments -->
+    <noscript>
+      <div style="padding: 20px; text-align: center;">
+        <p>This site requires JavaScript to be enabled for full functionality.</p>
+        <div style="width: 100%; height: 300px; margin: 20px 0; border-radius: 16px; overflow: hidden;">
+          <img 
+            src="https://maps.googleapis.com/maps/api/staticmap?center=Calmar+Subdivision,+Lucban,+Quezon+4328&zoom=15&size=600x300&key=AIzaSyBnKWd2V4Q-9Qx-HWZUkxmxQVrKjsQzGPk" 
+            alt="Map showing Calmar Subdivision, Lucban, Quezon" 
+            style="width: 100%; height: 100%; object-fit: cover;"
+          />
+        </div>
+        <p style="margin-top: 10px;">
+          <a 
+            href="https://maps.google.com/maps?q=Calmar+Subdivision,+Lucban,+Quezon+4328" 
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color: #C17C94; font-weight: bold;"
+          >
+            View on Google Maps
+          </a>
+        </p>
+      </div>
+    </noscript>
+  </body>
+</html>
